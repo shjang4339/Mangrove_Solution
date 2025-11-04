@@ -1,0 +1,164 @@
+// Variables
+$color-background: #e5e5e5;
+$color-white: #ffffff;
+$color-primary: #659bd4;
+$color-gray: #7f7f7f;
+$color-red: red;
+$color-black: #000000;
+
+$font-size-base: 20px;
+$font-size-button: 25px;
+
+$max-width-container: 1200px;
+$max-width-content: 900px;
+$max-width-input: 400px;
+$max-width-logo: 150px;
+
+$border-radius-input: 100px;
+$border-radius-button: 100px;
+$border-radius-box: 8px;
+
+// Base Styles
+html {
+    background: $color-background;
+}
+
+html, body {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+}
+
+body {
+    max-width: $max-width-container;
+    font-size: $font-size-base;
+    background: $color-white;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 50px;
+}
+
+// Typography
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    position: relative;
+    font-weight: 700;
+
+    &.ntnll::before {
+        content: '*';
+        position: absolute;
+        top: 0;
+        left: -12px;
+        color: $color-red;
+    }
+}
+
+// Images
+img {
+    width: 100%;
+
+    &.small-logo {
+        max-width: $max-width-logo;
+    }
+}
+
+// Form Elements
+input[type="text"],
+input[type="date"],
+input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    max-width: $max-width-input;
+    border-radius: $border-radius-input;
+}
+
+button {
+    padding: 10px 30px;
+    font-size: $font-size-button;
+    font-weight: 700;
+    border-radius: $border-radius-button;
+    color: $color-white;
+    background: $color-gray;
+    cursor: pointer;
+
+    &.confirm {
+        background: $color-primary;
+    }
+}
+
+// Layout Components
+.title-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: $max-width-content;
+    margin: 0 auto;
+    transform: rotate(0.04deg); /* 요소들 픽셀 깨짐 방지 */
+
+    > div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 10px 0;
+
+        &.btn-box {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    > label {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        margin: 10px 0;
+
+        > span {
+            width: 20%;
+        }
+    }
+
+    .title {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+// Checkbox Containers
+.region-box,
+.disease-box {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid $color-black;
+    border-radius: $border-radius-box;
+}
+
+.region-box label {
+    width: 50%;
+}
+
+.disease-box label {
+    width: 20%;
+}

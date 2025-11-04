@@ -1,0 +1,13 @@
+{
+  "name": "mangrove-solution",
+  "version": "1.0.0",
+  "description": "Fitness trainer matching platform",
+  "scripts": {
+    "sass": "sass --watch asset/scss:asset/css --style compressed",
+    "sass:build": "sass asset/scss:asset/css --style compressed",
+    "sass:dev": "sass --watch asset/scss:asset/css --style expanded"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

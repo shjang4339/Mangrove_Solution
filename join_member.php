@@ -1,10 +1,17 @@
         <?php include 'header.php'; ?>
-        
+
         <?php
+        // 질환 코드 조회
         $query = "select * from disease_code";
         $stmt = $pdo -> prepare($query);
         $stmt -> execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $disease_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // 지역 코드 조회
+        $query = "select * from region";
+        $stmt = $pdo -> prepare($query);
+        $stmt -> execute();
+        $region_result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         ?>
 
         <section>
@@ -36,10 +43,21 @@
                     <span class="ntnll">전화번호</span>
                     <input id="phone" type="text" value=""/>
                 </label>
-                <label>
+                <div>
                     <span class="ntnll">거주지</span>
-                    <input id="address" type="text" value=""/>
-                </label>
+                    <div class="region-box">
+                    <?php
+                    for ($i=0; $i<count($region_result); $i++) :
+                        ?>
+                        <label>
+                            <input class="region_check" type="checkbox" value="<?=$region_result[$i]['no']?>"/>
+                            <?=$region_result[$i]['name']?>
+                        </label>
+                        <?php
+                    endfor;
+                    ?>
+                    </div>
+                </div>
                 <label>
                     <span class="ntnll">생년월일</span>
                     <input id="birth" type="date" value=""/>
@@ -52,12 +70,12 @@
                     <span>질환 / 장애 유무</span>
                     <div class="disease-box">
 
-                    <?php 
-                    for ($i=0; $i<count($result); $i++) :
+                    <?php
+                    for ($i=0; $i<count($disease_result); $i++) :
                         ?>
                         <label>
-                            <input class="disease_check" type="checkbox" value="<?=$result[$i]['no']?>"/>
-                            <?=$result[$i]['name']?>
+                            <input class="disease_check" type="checkbox" value="<?=$disease_result[$i]['no']?>"/>
+                            <?=$disease_result[$i]['name']?>
                         </label>
                         <?php
                     endfor;
@@ -77,14 +95,73 @@
         <?php include 'footer.php'; ?>
         <script>
             $('.btn-box > .confirm').on('click', function() {
-                let id = $('#id').val();
+                let id = $('#id').val().trim();
                 let password = $('#password').val();
                 let password_check = $('#password_check').val();
-                let name = $('#name').val();
-                let phone = $('#phone').val();
-                let address = $('#address').val();
+                let name = $('#name').val().trim();
+                let phone = $('#phone').val().trim();
                 let birth = $('#birth').val();
-                let email = $('#email').val();
+                let email = $('#email').val().trim();
+
+                // 필수 입력 검증
+                if (!id) {
+                    alert('아이디를 입력해주세요.');
+                    $('#id').focus();
+                    return;
+                }
+
+                if (!password) {
+                    alert('비밀번호를 입력해주세요.');
+                    $('#password').focus();
+                    return;
+                }
+
+                if (!password_check) {
+                    alert('비밀번호 확인을 입력해주세요.');
+                    $('#password_check').focus();
+                    return;
+                }
+
+                // 비밀번호 일치 검증
+                if (password !== password_check) {
+                    alert('비밀번호가 일치하지 않습니다.');
+                    $('#password_check').focus();
+                    return;
+                }
+
+                if (!name) {
+                    alert('이름을 입력해주세요.');
+                    $('#name').focus();
+                    return;
+                }
+
+                if (!phone) {
+                    alert('전화번호를 입력해주세요.');
+                    $('#phone').focus();
+                    return;
+                }
+
+                // 거주지 체크박스 검증
+                let region_code = $('.region_check:checked').map(function() {
+                    return $(this).val();
+                }).get().join(',');
+
+                if (!region_code) {
+                    alert('거주지를 선택해주세요.');
+                    return;
+                }
+
+                if (!birth) {
+                    alert('생년월일을 입력해주세요.');
+                    $('#birth').focus();
+                    return;
+                }
+
+                if (!email) {
+                    alert('이메일 주소를 입력해주세요.');
+                    $('#email').focus();
+                    return;
+                }
 
                 let disease_code = $('.disease_check:checked').map(function() {
                     return $(this).val();
@@ -92,8 +169,6 @@
 
                 let is_disease = Number(disease_code.length > 0);
 
-                console.log(is_disease);
-            
                 $.ajax({
                     url: 'asset/controller/insert_join_member.php',
                     data: {
@@ -101,7 +176,7 @@
                         password: password,
                         name: name,
                         phone: phone,
-                        address: address,
+                        region: region_code,
                         birth: birth,
                         email: email,
                         is_disease: is_disease,
@@ -112,11 +187,14 @@
                     dataType: "json",
                     success: function(data){
                         if(data.succ) {
-                            alert('추가되었습니다');
-                            window.location.reload();
+                            alert('회원가입이 완료되었습니다.');
+                            window.location.href = 'index.php';
                         } else {
-                            alert('오류');
+                            alert('오류가 발생했습니다. 다시 시도해주세요.');
                         }
+                    },
+                    error: function() {
+                        alert('서버와의 통신에 실패했습니다.');
                     }
                 });
 
