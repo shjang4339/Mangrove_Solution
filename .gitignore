@@ -29,3 +29,4 @@ desktop.ini
 
 # 로그 파일
 *.log
+DB_BACKUP.sql
