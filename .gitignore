@@ -1,0 +1,31 @@
+# Claude Code 문서
+CLAUDE.md
+
+# 데이터베이스 백업
+DB_BACKUP.sql
+
+# 데이터베이스 설정 (민감 정보)
+asset/db/dbconfig.php
+
+# 업로드된 이미지 파일
+image/
+
+# Node modules
+node_modules/
+
+# 컴파일된 CSS (SCSS에서 생성됨)
+asset/css/
+
+# IDE 설정
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 로그 파일
+*.log
