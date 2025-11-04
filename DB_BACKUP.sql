@@ -50,10 +50,11 @@ CREATE TABLE IF NOT EXISTS `member` (
   `birth` date NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `is_disease` tinyint(4) NOT NULL DEFAULT 0,
-  `disease_code` int(11) DEFAULT NULL,
+  `disease_code` varchar(50) DEFAULT NULL,
+  `region` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `date_account` datetime NOT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- 내보낼 데이터가 선택되어 있지 않습니다.
 
@@ -70,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `region` (
 CREATE TABLE IF NOT EXISTS `trainer` (
   `no` int(11) NOT NULL AUTO_INCREMENT,
   `id` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` int(11) NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `phone` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -81,9 +82,9 @@ CREATE TABLE IF NOT EXISTS `trainer` (
   `sublicense_2` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `sublicense_3` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `teachday` int(11) DEFAULT NULL,
-  `region` int(11) NOT NULL,
+  `region` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `greet` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `disease_code` int(11) NOT NULL,
+  `disease_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   PRIMARY KEY (`no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
