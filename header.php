@@ -14,10 +14,27 @@ require "./asset/db/dbconnect.php";
         <meta property="og:description" content="We are Mangrove" />
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="asset/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="asset/scss/main.css" />
     </head>
     <body>
 <?php
 session_start();
-// $name = $_SESSION['name'];
+
+// 로그인 상태 확인
+$is_logged_in = isset($_SESSION['user_id']);
+$user_name = $_SESSION['user_name'] ?? '';
+$user_type = $_SESSION['user_type'] ?? '';
 ?>
+
+<!-- 헤더 네비게이션 (로그인 상태 표시) -->
+<header class="site-header">
+    <div class="header-content">
+        <?php if ($is_logged_in): ?>
+            <div class="user-info">
+                <span class="user-name"><?= htmlspecialchars($user_name) ?></span>
+                <span class="user-type">(<?= $user_type === 'member' ? '고객' : '트레이너' ?>)</span>
+                <button class="btn-logout" onclick="location.href='asset/controller/logout.php'">로그아웃</button>
+            </div>
+        <?php endif; ?>
+    </div>
+</header>
