@@ -1,5 +1,6 @@
 # Claude Code 문서
 CLAUDE.md
+.claude/
 
 # 데이터베이스 백업
 DB_BACKUP.sql
