@@ -13,8 +13,9 @@ require "./asset/db/dbconnect.php";
         <meta property="og:title" content="Mangrove Solution" />
         <meta property="og:description" content="We are Mangrove" />
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="asset/scss/main.css" />
+        <link rel="stylesheet" type="text/css" href="asset/css/main.css" />
     </head>
     <body>
 <?php

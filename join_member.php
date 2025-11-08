@@ -50,7 +50,7 @@
                     for ($i=0; $i<count($region_result); $i++) :
                         ?>
                         <label>
-                            <input class="region_check" type="checkbox" value="<?=$region_result[$i]['no']?>"/>
+                            <input class="region_check" type="radio" name="region" value="<?=$region_result[$i]['no']?>"/>
                             <?=$region_result[$i]['name']?>
                         </label>
                         <?php
@@ -141,10 +141,8 @@
                     return;
                 }
 
-                // 거주지 체크박스 검증
-                let region_code = $('.region_check:checked').map(function() {
-                    return $(this).val();
-                }).get().join(',');
+                // 거주지 라디오 버튼 검증
+                let region_code = $('.region_check:checked').val();
 
                 if (!region_code) {
                     alert('거주지를 선택해주세요.');

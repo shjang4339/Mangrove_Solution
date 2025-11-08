@@ -33,10 +33,15 @@
         const urlParams = new URLSearchParams(window.location.search);
         const loginType = urlParams.get('type');
 
-        // 페이지 로드 시 type에 따라 버튼 강조
+        // 페이지 로드 시 type에 따라 버튼 강조 및 자동 선택
         if (loginType === 'trainer') {
             $('#btn-trainer-login').addClass('active');
+            $('#btn-member-login').hide();
+        } else if (loginType === 'member') {
+            $('#btn-member-login').addClass('active');
+            $('#btn-trainer-login').hide();
         } else {
+            // type이 없으면 둘 다 표시
             $('#btn-member-login').addClass('active');
         }
 

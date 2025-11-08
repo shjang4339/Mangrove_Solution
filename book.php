@@ -13,6 +13,28 @@ $stmt = $pdo->prepare($query);
 $stmt->execute(array($_SESSION['user_no']));
 $booking_info = $stmt->fetch(PDO::FETCH_ASSOC);
 $booking_count = $booking_info['booking_count'] ?? 0;
+
+// 예약된 트레이너 목록 조회
+$query = "SELECT t.no, t.name, t.image, t.major, t.region, t.greet, t.license, t.sublicense_1, t.sublicense_2, t.sublicense_3
+          FROM book b
+          JOIN trainer t ON b.trainer_no = t.no
+          WHERE b.member_no = ? AND b.is_meet = 0
+          ORDER BY b.book_date DESC";
+$stmt = $pdo->prepare($query);
+$stmt->execute(array($_SESSION['user_no']));
+$booked_trainers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// 지역 코드를 이름으로 변환하는 함수
+function getRegionNames($pdo, $region_codes) {
+    if (empty($region_codes)) return '';
+    $codes = explode(',', $region_codes);
+    $placeholders = str_repeat('?,', count($codes) - 1) . '?';
+    $query = "SELECT name FROM region WHERE no IN ($placeholders)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($codes);
+    $regions = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    return implode(', ', $regions);
+}
 ?>
 
 <section class="book-container">
@@ -32,11 +54,68 @@ $booking_count = $booking_info['booking_count'] ?? 0;
         <p>현재 상담예약: <strong><?= $booking_count ?></strong> 건</p>
     </div>
 
+    <!-- 예약된 트레이너 목록 -->
+    <?php if (!empty($booked_trainers)): ?>
+    <div class="booked-trainers-container">
+        <h2>예약된 트레이너</h2>
+        <div class="booked-trainers-list">
+            <?php foreach ($booked_trainers as $trainer): ?>
+            <div class="booked-trainer-item">
+                <!-- 트레이너 이미지 -->
+                <div class="booked-trainer-image">
+                    <?php if (!empty($trainer['image'])): ?>
+                        <img src="image/<?= htmlspecialchars($trainer['image']) ?>" alt="<?= htmlspecialchars($trainer['name']) ?> 트레이너">
+                    <?php else: ?>
+                        <div class="no-image">No Image</div>
+                    <?php endif; ?>
+                </div>
+
+                <!-- 트레이너 정보 -->
+                <div class="booked-trainer-info">
+                    <h3><?= htmlspecialchars($trainer['name']) ?> 트레이너</h3>
+                    <div class="info-item">
+                        <span class="info-label">학위/전공:</span>
+                        <span class="info-value"><?= htmlspecialchars($trainer['major']) ?></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">대표자격증:</span>
+                        <span class="info-value"><?= htmlspecialchars($trainer['license']) ?></span>
+                    </div>
+                    <?php if (!empty($trainer['sublicense_1']) || !empty($trainer['sublicense_2']) || !empty($trainer['sublicense_3'])): ?>
+                    <div class="info-item">
+                        <span class="info-label">추가자격증:</span>
+                        <span class="info-value">
+                            <?php
+                            $sublicenses = array_filter([
+                                $trainer['sublicense_1'],
+                                $trainer['sublicense_2'],
+                                $trainer['sublicense_3']
+                            ]);
+                            echo htmlspecialchars(implode(', ', $sublicenses));
+                            ?>
+                        </span>
+                    </div>
+                    <?php endif; ?>
+                    <div class="info-item">
+                        <span class="info-label">전문분야:</span>
+                        <span class="info-value"><?= htmlspecialchars($trainer['greet']) ?></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">활동지역:</span>
+                        <span class="info-value"><?= htmlspecialchars(getRegionNames($pdo, $trainer['region'])) ?></span>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <!-- 버튼 박스 -->
     <div class="book-button-box">
         <button class="btn-book btn-gray" id="btn-nearby-trainer">집 근처 지역 트레이너 찾기</button>
         <button class="btn-book btn-yellow" onclick="location.href='find_trainer.php'">트레이너 바로 찾기</button>
-        <button class="btn-book btn-cancel" onclick="location.href='index.php'">취소</button>
+        <button class="btn-book btn-primary" onclick="location.href='index.php'">처음으로</button>
     </div>
 </section>
 

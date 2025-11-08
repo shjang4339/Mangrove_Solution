@@ -1,1 +1,1343 @@
-html{background:#e5e5e5}html,body{display:flex;justify-content:center;width:100%;min-height:100%;padding:0;margin:0;font-size:0}body{max-width:1200px;font-size:20px;background:#fff}section{display:flex;flex-direction:column;width:100%;padding:20px 50px}h1{margin:0;padding:0}p{margin:0;padding:0}span{position:relative;font-weight:700}span.ntnll::before{content:"*";position:absolute;top:0;left:-12px;color:red}img{width:100%}img.small-logo{max-width:150px}input[type=text],input[type=date],input[type=password]{padding:10px;width:100%;max-width:400px;border-radius:100px}button{padding:10px 30px;font-size:25px;font-weight:700;border-radius:100px;color:#fff;background:#7f7f7f;cursor:pointer}button.confirm{background:#659bd4}.title-wrap{display:flex;align-items:center;flex-direction:column;width:100%;max-width:900px;margin:0 auto;transform:rotate(0.04deg)}.title-wrap>div{display:flex;flex-direction:column;width:100%;padding:10px 0}.title-wrap>div.btn-box{flex-direction:row;justify-content:center}.title-wrap>label{display:flex;align-items:center;flex-direction:row;justify-content:space-around;width:100%;margin:10px 0}.title-wrap>label>span{width:20%}.title-wrap .title{flex-direction:row;justify-content:space-between}.region-box,.disease-box{display:flex;flex-wrap:wrap;margin-top:20px;padding:10px;border:2px solid #000;border-radius:8px}.region-box label{width:50%}.disease-box label{width:20%}.site-header{position:sticky;top:0;width:100%;background:#fff;border-bottom:1px solid #ddd;z-index:1000}.site-header .header-content{display:flex;justify-content:flex-end;padding:15px 30px;max-width:1200px;margin:0 auto}.site-header .header-content .user-info{display:flex;align-items:center;gap:10px}.site-header .header-content .user-info .user-name{font-weight:700;color:#659bd4}.site-header .header-content .user-info .user-type{font-weight:400;color:#7f7f7f}.site-header .header-content .user-info .btn-logout{padding:5px 20px;font-size:16px;background:#7f7f7f;color:#fff;border:none;border-radius:20px;cursor:pointer}.site-header .header-content .user-info .btn-logout:hover{background:rgb(101.5, 101.5, 101.5)}.main-container{display:flex;flex-direction:column;align-items:center;width:100%;padding:40px 50px}.main-container .main-logo{margin-bottom:30px;max-width:200px}.main-container .main-logo img{width:100%;height:auto}.main-container .main-title{font-size:36px;font-weight:700;color:#659bd4;margin-bottom:20px;text-align:center}.main-container .main-subtitle{background:#4caf50;color:#fff;padding:15px 30px;border-radius:10px;font-size:18px;font-weight:600;text-align:center;margin-bottom:40px;max-width:800px}.main-container .login-section{display:flex;gap:20px;margin-bottom:60px}.main-container .login-section .btn-large{padding:15px 50px;font-size:20px;font-weight:700;border:none;border-radius:50px;cursor:pointer;transition:all .3s ease}.main-container .login-section .btn-large.btn-primary{background:#659bd4;color:#fff}.main-container .login-section .btn-large.btn-primary:hover{background:rgb(61.1319796954, 129.1116751269, 200.8680203046)}.main-container .login-section .btn-large.btn-secondary{background:#fff;color:#659bd4;border:2px solid #659bd4}.main-container .login-section .btn-large.btn-secondary:hover{background:#659bd4;color:#fff}.main-container .trainer-header{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:1000px;margin-bottom:30px}.main-container .trainer-header h2{font-size:28px;font-weight:700;color:#000;margin:0}.main-container .trainer-header .btn-trainer-login{padding:10px 30px;font-size:16px;font-weight:600;background:#7f7f7f;color:#fff;border:none;border-radius:30px;cursor:pointer}.main-container .trainer-header .btn-trainer-login:hover{background:rgb(101.5, 101.5, 101.5)}.main-container .trainerSwiper{width:100%;max-width:1000px;padding:20px 0 60px}.main-container .trainerSwiper .swiper-slide{display:flex;justify-content:center}.main-container .trainerSwiper .swiper-slide .trainer-card{background:#fff;border:1px solid #ddd;border-radius:15px;overflow:hidden;box-shadow:0 2px 8px rgba(0, 0, 0, 0.1);transition:transform .3s ease,box-shadow .3s ease;cursor:pointer}.main-container .trainerSwiper .swiper-slide .trainer-card:hover{transform:translateY(-5px);box-shadow:0 4px 16px rgba(0, 0, 0, 0.15)}.main-container .trainerSwiper .swiper-slide .trainer-card .trainer-image{width:100%;height:250px;overflow:hidden;background:#f5f5f5;display:flex;align-items:center;justify-content:center}.main-container .trainerSwiper .swiper-slide .trainer-card .trainer-image img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover}.main-container .trainerSwiper .swiper-slide .trainer-card .trainer-image .no-image{color:#7f7f7f;font-size:16px}.main-container .trainerSwiper .swiper-slide .trainer-card .trainer-info{padding:20px}.main-container .trainerSwiper .swiper-slide .trainer-card .trainer-info h3{font-size:20px;font-weight:700;margin:0 0 10px 0;color:#000}.main-container .trainerSwiper .swiper-slide .trainer-card .trainer-info .trainer-major{font-size:14px;color:#7f7f7f;margin:0}.main-container .trainerSwiper .swiper-button-next,.main-container .trainerSwiper .swiper-button-prev{color:#659bd4}.main-container .trainerSwiper .swiper-pagination-bullet-active{background:#659bd4}.main-container .sponsor-section{margin-top:60px;text-align:center;width:100%}.main-container .sponsor-section h3{font-size:24px;font-weight:700;margin-bottom:30px;color:#000}.main-container .sponsor-section .sponsor-logos{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}.main-container .sponsor-section .sponsor-logos .sponsor-logo{width:200px;height:100px;display:flex;align-items:center;justify-content:center;border:1px solid #ddd;border-radius:10px;padding:20px;background:#fff}.main-container .sponsor-section .sponsor-logos .sponsor-logo img{max-width:100%;max-height:100%;-o-object-fit:contain;object-fit:contain}.login-container{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;width:100%;padding:40px 50px}.login-container .login-logo{margin-bottom:50px;max-width:300px}.login-container .login-logo img{width:100%;height:auto}.login-container .login-form{display:flex;flex-direction:column;align-items:center;width:100%;max-width:500px;padding:40px;background:#fff;border:2px solid #ddd;border-radius:20px;box-shadow:0 4px 16px rgba(0, 0, 0, 0.1)}.login-container .login-form label{display:flex;flex-direction:column;width:100%;margin-bottom:25px}.login-container .login-form label span{margin-bottom:10px;font-weight:700;font-size:16px;color:#000}.login-container .login-form label input{padding:15px 20px;font-size:16px;border:1px solid #ddd;border-radius:10px;max-width:100%}.login-container .login-form label input:focus{outline:none;border-color:#659bd4}.login-container .login-form .login-buttons{display:flex;flex-direction:column;gap:15px;width:100%;margin-top:20px}.login-container .login-form .login-buttons .btn-large{padding:15px 30px;font-size:18px;font-weight:700;border:none;border-radius:10px;cursor:pointer;transition:all .3s ease}.login-container .login-form .login-buttons .btn-large.btn-primary{background:#659bd4;color:#fff}.login-container .login-form .login-buttons .btn-large.btn-primary:hover{background:rgb(61.1319796954, 129.1116751269, 200.8680203046)}.login-container .login-form .login-buttons .btn-large.btn-primary.active{background:rgb(51.6218274112, 116.4492385787, 184.8781725888);box-shadow:0 0 0 3px rgba(101, 155, 212, 0.3)}.login-container .login-form .login-buttons .btn-large.btn-secondary{background:#4caf50;color:#fff}.login-container .login-form .login-buttons .btn-large.btn-secondary:hover{background:rgb(60.5577689243, 139.4422310757, 63.7450199203)}.login-container .login-form .login-buttons .btn-large.btn-secondary.active{background:rgb(52.8366533865, 121.6633466135, 55.6175298805);box-shadow:0 0 0 3px rgba(76, 175, 80, 0.3)}.login-container .login-form .login-buttons .btn-large.btn-cancel{background:#7f7f7f;color:#fff}.login-container .login-form .login-buttons .btn-large.btn-cancel:hover{background:rgb(101.5, 101.5, 101.5)}@media(max-width: 768px){.main-container{padding:20px 20px}.main-container .main-title{font-size:28px}.main-container .main-subtitle{font-size:16px;padding:12px 20px}.main-container .login-section{flex-direction:column;width:100%}.main-container .login-section .btn-large{width:100%}.main-container .trainer-header{flex-direction:column;gap:20px;text-align:center}.main-container .trainer-header h2{font-size:24px}.login-container{padding:20px 20px}.login-container .login-logo{max-width:200px}.login-container .login-form{padding:30px 20px;max-width:100%}section{padding:20px 20px}}/*# sourceMappingURL=main.css.map */
+html {
+	background:#e5e5e5
+}
+html,body {
+	display:flex;
+	justify-content:center;
+	width:100%;
+	min-height:100%;
+	padding:0;
+	margin:0;
+	font-size:0
+}
+body {
+	max-width:1200px;
+	font-size:20px;
+	background:#fff
+}
+section {
+	display:flex;
+	flex-direction:column;
+	width:100%;
+	padding:20px 50px
+}
+h1 {
+	margin:0;
+	padding:0
+}
+p {
+	margin:0;
+	padding:0
+}
+span {
+	position:relative;
+	font-weight:700
+}
+span.ntnll::before {
+	content:"*";
+	position:absolute;
+	top:0;
+	left:-12px;
+	color:red
+}
+img {
+	width:100%
+}
+img.small-logo {
+	max-width:150px
+}
+input[type=text],input[type=date],input[type=password] {
+	padding:10px;
+	width:100%;
+	max-width:400px;
+	border-radius:100px
+}
+button {
+	padding:10px 30px;
+	font-size:25px;
+	font-weight:700;
+	border-radius:100px;
+	color:#fff;
+	background:#7f7f7f;
+	cursor:pointer
+}
+button.confirm {
+	background:#659bd4
+}
+.title-wrap {
+	display:flex;
+	align-items:center;
+	flex-direction:column;
+	width:100%;
+	max-width:900px;
+	margin:0 auto;
+	transform:rotate(0.04deg)
+}
+.title-wrap>div {
+	display:flex;
+	flex-direction:column;
+	width:100%;
+	padding:10px 0
+}
+.title-wrap>div.btn-box {
+	flex-direction:row;
+	justify-content:center
+}
+.title-wrap>label {
+	display:flex;
+	align-items:center;
+	flex-direction:row;
+	justify-content:space-around;
+	width:100%;
+	margin:10px 0
+}
+.title-wrap>label>span {
+	width:20%
+}
+.title-wrap .title {
+	flex-direction:row;
+	justify-content:space-between
+}
+.region-box,.disease-box {
+	display:flex;
+	flex-wrap:wrap;
+	margin-top:20px;
+	padding:10px;
+	border:2px solid #000;
+	border-radius:8px
+}
+.region-box label {
+	width:50%
+}
+.disease-box label {
+	width:20%
+}
+.site-header {
+	top:0;
+	background:#fff;
+	border-bottom:1px solid #ddd;
+	z-index:1000
+}
+.site-header .header-content {
+	display:flex;
+	justify-content:flex-end;
+	padding:15px 30px;
+	max-width:1200px;
+	margin:0 auto
+}
+.site-header .header-content .user-info {
+	display:flex;
+	align-items:center;
+	gap:10px
+}
+.site-header .header-content .user-info .user-name {
+	font-weight:700;
+	color:#659bd4
+}
+.site-header .header-content .user-info .user-type {
+	font-weight:400;
+	color:#7f7f7f
+}
+.site-header .header-content .user-info .btn-logout {
+	padding:5px 20px;
+	font-size:16px;
+	background:#7f7f7f;
+	color:#fff;
+	border:none;
+	border-radius:20px;
+	cursor:pointer
+}
+.site-header .header-content .user-info .btn-logout:hover {
+	background:#666
+}
+.main-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.main-container .main-logo {
+	margin-bottom:30px;
+	max-width:200px
+}
+.main-container .main-logo img {
+	width:100%;
+	height:auto
+}
+.main-container .main-title {
+	font-size:36px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:20px;
+	text-align:center
+}
+.main-container .main-subtitle {
+	background:#4caf50;
+	color:#fff;
+	padding:15px 30px;
+	border-radius:10px;
+	font-size:18px;
+	font-weight:600;
+	text-align:center;
+	margin-bottom:40px;
+	max-width:800px
+}
+.main-container .user-type-section {
+	display:flex;
+	gap:30px;
+	width:100%;
+	max-width:900px;
+	margin-bottom:60px
+}
+.main-container .user-type-section .user-type-box {
+	flex:1;
+	background:#fff;
+	border:2px solid #ddd;
+	border-radius:20px;
+	padding:40px 30px;
+	text-align:center;
+	transition:all .3s ease;
+	box-shadow:0 2px 8px rgba(0,0,0,0.1)
+}
+.main-container .user-type-section .user-type-box:hover {
+	transform:translateY(-5px);
+	box-shadow:0 4px 16px rgba(0,0,0,0.15);
+	border-color:#659bd4
+}
+.main-container .user-type-section .user-type-box h3 {
+	font-size:28px;
+	font-weight:700;
+	color:#659bd4;
+	margin:0 0 15px 0
+}
+.main-container .user-type-section .user-type-box p {
+	font-size:16px;
+	color:#7f7f7f;
+	margin:0 0 30px 0;
+	line-height:1.5
+}
+.main-container .user-type-section .user-type-box .box-buttons {
+	display:flex;
+	flex-direction:column;
+	gap:12px
+}
+.main-container .user-type-section .user-type-box .box-buttons .btn-box {
+	padding:12px 30px;
+	font-size:16px;
+	font-weight:700;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-primary {
+	background:#659bd4;
+	color:#fff
+}
+.main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-primary:hover {
+	background:#4d7ba8
+}
+.main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-secondary {
+	background:#fff;
+	color:#659bd4;
+	border:2px solid #659bd4
+}
+.main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-secondary:hover {
+	background:#659bd4;
+	color:#fff
+}
+.main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-tertiary {
+	background:#4caf50;
+	color:#fff;
+	margin-top:8px
+}
+.main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-tertiary:hover {
+	background:#3d8b40
+}
+.main-container .trainer-header {
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	width:100%;
+	max-width:1000px;
+	margin-bottom:30px
+}
+.main-container .trainer-header h2 {
+	font-size:28px;
+	font-weight:700;
+	color:#000;
+	margin:0
+}
+.main-container .trainer-header .btn-trainer-login {
+	padding:10px 30px;
+	font-size:16px;
+	font-weight:600;
+	background:#7f7f7f;
+	color:#fff;
+	border:none;
+	border-radius:30px;
+	cursor:pointer
+}
+.main-container .trainer-header .btn-trainer-login:hover {
+	background:#666
+}
+.main-container .gallery-swiper {
+	width:100%;
+	max-width:1000px;
+	padding:20px 0 60px;
+	overflow:hidden
+}
+.main-container .gallery-swiper .swiper-wrapper {
+	display:flex;
+	align-items:stretch
+}
+.main-container .gallery-swiper .swiper-slide {
+	display:flex;
+	justify-content:center;
+	height:auto
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card {
+	width:100%;
+	max-width:300px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:15px;
+	overflow:hidden;
+	box-shadow:0 2px 8px rgba(0,0,0,0.1);
+	transition:transform .3s ease,box-shadow .3s ease;
+	cursor:pointer;
+	display:flex;
+	flex-direction:column
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card:hover {
+	transform:translateY(-5px);
+	box-shadow:0 4px 16px rgba(0,0,0,0.15)
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card .trainer-image {
+	width:100%;
+	height:250px;
+	overflow:hidden;
+	background:#f5f5f5;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-shrink:0
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card .trainer-image img {
+	width:100%;
+	height:100%;
+	object-fit:cover
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card .trainer-image .no-image {
+	color:#7f7f7f;
+	font-size:16px
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card .trainer-info {
+	padding:20px;
+	flex:1
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card .trainer-info h3 {
+	font-size:20px;
+	font-weight:700;
+	margin:0 0 10px 0;
+	color:#000
+}
+.main-container .gallery-swiper .swiper-slide .trainer-card .trainer-info .trainer-major {
+	font-size:14px;
+	color:#7f7f7f;
+	margin:0
+}
+.main-container .gallery-swiper .swiper-button-next,.main-container .gallery-swiper .swiper-button-prev {
+	color:#659bd4
+}
+.main-container .gallery-swiper .swiper-pagination-bullet-active {
+	background:#659bd4
+}
+.main-container .sponsor-section {
+	margin-top:60px;
+	text-align:center;
+	width:100%
+}
+.main-container .sponsor-section h3 {
+	font-size:24px;
+	font-weight:700;
+	margin-bottom:30px;
+	color:#000
+}
+.main-container .sponsor-section .sponsor-logos {
+	display:flex;
+	justify-content:center;
+	gap:40px;
+	flex-wrap:wrap
+}
+.main-container .sponsor-section .sponsor-logos .sponsor-logo {
+	width:200px;
+	height:100px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	border:1px solid #ddd;
+	border-radius:10px;
+	padding:20px;
+	background:#fff
+}
+.main-container .sponsor-section .sponsor-logos .sponsor-logo img {
+	max-width:100%;
+	max-height:100%;
+	object-fit:contain
+}
+.login-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	min-height:80vh;
+	width:100%;
+	padding:40px 50px
+}
+.login-container .login-logo {
+	margin-bottom:50px;
+	max-width:300px
+}
+.login-container .login-logo img {
+	width:100%;
+	height:auto
+}
+.login-container .login-form {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	max-width:500px;
+	padding:40px;
+	background:#fff;
+	border:2px solid #ddd;
+	border-radius:20px;
+	box-shadow:0 4px 16px rgba(0,0,0,0.1)
+}
+.login-container .login-form label {
+	display:flex;
+	flex-direction:column;
+	width:100%;
+	margin-bottom:25px
+}
+.login-container .login-form label span {
+	margin-bottom:10px;
+	font-weight:700;
+	font-size:16px;
+	color:#000
+}
+.login-container .login-form label input {
+	padding:15px 20px;
+	font-size:16px;
+	border:1px solid #ddd;
+	border-radius:10px;
+	max-width:100%
+}
+.login-container .login-form label input:focus {
+	outline:none;
+	border-color:#659bd4
+}
+.login-container .login-form .login-buttons {
+	display:flex;
+	flex-direction:column;
+	gap:15px;
+	width:100%;
+	margin-top:20px
+}
+.login-container .login-form .login-buttons .btn-large {
+	padding:15px 30px;
+	font-size:18px;
+	font-weight:700;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.login-container .login-form .login-buttons .btn-large.btn-primary {
+	background:#659bd4;
+	color:#fff
+}
+.login-container .login-form .login-buttons .btn-large.btn-primary:hover {
+	background:#4d7ba8
+}
+.login-container .login-form .login-buttons .btn-large.btn-primary.active {
+	background:#436d9a;
+	box-shadow:0 0 0 3px rgba(101,155,212,0.3)
+}
+.login-container .login-form .login-buttons .btn-large.btn-secondary {
+	background:#4caf50;
+	color:#fff
+}
+.login-container .login-form .login-buttons .btn-large.btn-secondary:hover {
+	background:#3d8b40
+}
+.login-container .login-form .login-buttons .btn-large.btn-secondary.active {
+	background:#357a38;
+	box-shadow:0 0 0 3px rgba(76,175,80,0.3)
+}
+.login-container .login-form .login-buttons .btn-large.btn-cancel {
+	background:#7f7f7f;
+	color:#fff
+}
+.login-container .login-form .login-buttons .btn-large.btn-cancel:hover {
+	background:#666
+}
+@media(max-width:768px) {
+	.main-container {
+		padding:20px 20px
+	}
+	.main-container .main-title {
+		font-size:28px
+	}
+	.main-container .main-subtitle {
+		font-size:16px;
+		padding:12px 20px
+	}
+	.main-container .login-section {
+		flex-direction:column;
+		width:100%
+	}
+	.main-container .login-section .btn-large {
+		width:100%
+	}
+	.main-container .trainer-header {
+		flex-direction:column;
+		gap:20px;
+		text-align:center
+	}
+	.main-container .trainer-header h2 {
+		font-size:24px
+	}
+	.login-container {
+		padding:20px 20px
+	}
+	.login-container .login-logo {
+		max-width:200px
+	}
+	.login-container .login-form {
+		padding:30px 20px;
+		max-width:100%
+	}
+	section {
+		padding:20px 20px
+	}
+}
+.booking-section {
+	display:flex;
+	justify-content:center;
+	margin-bottom:30px
+}
+.booking-section .btn-booking {
+	padding:15px 60px;
+	font-size:22px;
+	font-weight:700;
+	background:#4caf50;
+	color:#fff;
+	border:none;
+	border-radius:50px;
+	cursor:pointer;
+	transition:all .3s ease;
+	box-shadow:0 4px 12px rgba(76,175,80,0.3)
+}
+.booking-section .btn-booking:hover {
+	background:#3d8b40;
+	box-shadow:0 6px 16px rgba(76,175,80,0.4)
+}
+.book-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.book-container .book-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.book-container .book-logo img {
+	width:100%;
+	height:auto
+}
+.book-container .welcome-message {
+	text-align:center;
+	margin-bottom:30px
+}
+.book-container .welcome-message h1 {
+	font-size:32px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:15px
+}
+.book-container .welcome-message p {
+	font-size:20px;
+	color:#7f7f7f
+}
+.book-container .booking-count {
+	background:#659bd4;
+	padding:20px 40px;
+	border-radius:15px;
+	margin-bottom:40px;
+	text-align:center
+}
+.book-container .booking-count p {
+	font-size:20px;
+	color:#fff
+}
+.book-container .booking-count p strong {
+	color:#fff;
+	font-size:24px
+}
+.book-container .booked-trainers-container {
+	width:100%;
+	max-width:900px;
+	margin-bottom:40px
+}
+.book-container .booked-trainers-container h2 {
+	font-size:24px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:20px;
+	text-align:center
+}
+.book-container .booked-trainers-container .booked-trainers-list {
+	max-height:500px;
+	overflow-y:scroll;
+	padding:10px;
+	border:2px solid #ddd;
+	border-radius:15px;
+	background:#f9f9f9
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item {
+	display:flex;
+	gap:25px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:12px;
+	padding:20px;
+	margin-bottom:20px;
+	transition:all .3s ease
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:last-child {
+	margin-bottom:0
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:hover {
+	box-shadow:0 4px 12px rgba(0,0,0,0.1)
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image {
+	width:180px;
+	height:180px;
+	flex-shrink:0;
+	border-radius:10px;
+	overflow:hidden;
+	background:#f5f5f5;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image img {
+	width:100%;
+	height:100%;
+	object-fit:cover
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image .no-image {
+	color:#7f7f7f;
+	font-size:14px
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	gap:12px
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info h3 {
+	font-size:22px;
+	font-weight:700;
+	color:#659bd4;
+	margin:0 0 10px 0
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item {
+	display:flex;
+	gap:10px;
+	line-height:1.6
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item .info-label {
+	font-weight:700;
+	color:#000;
+	min-width:100px
+}
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item .info-value {
+	color:#7f7f7f;
+	flex:1
+}
+.book-container .book-button-box {
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+	width:100%;
+	max-width:500px
+}
+.book-container .book-button-box .btn-book {
+	padding:20px 40px;
+	font-size:20px;
+	font-weight:700;
+	border:none;
+	border-radius:15px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.book-container .book-button-box .btn-book.btn-gray {
+	background:#7f7f7f;
+	color:#fff
+}
+.book-container .book-button-box .btn-book.btn-gray:hover {
+	background:#666
+}
+.book-container .book-button-box .btn-book.btn-yellow {
+	background:#ffd700;
+	color:#000
+}
+.book-container .book-button-box .btn-book.btn-yellow:hover {
+	background:#ccac00
+}
+.book-container .book-button-box .btn-book.btn-cancel {
+	background:#ddd;
+	color:#000
+}
+.book-container .book-button-box .btn-book.btn-cancel:hover {
+	background:#c4c4c4
+}
+.book-container .book-button-box .btn-book.btn-primary {
+	background:#659bd4;
+	color:#fff
+}
+.book-container .book-button-box .btn-book.btn-primary:hover {
+	background:#4d7ba8
+}
+.find-trainer-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.find-trainer-container .find-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.find-trainer-container .find-logo img {
+	width:100%;
+	height:auto
+}
+.find-trainer-container .find-title {
+	font-size:32px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:15px;
+	text-align:center
+}
+.find-trainer-container .find-subtitle {
+	font-size:18px;
+	color:#7f7f7f;
+	margin-bottom:40px;
+	text-align:center
+}
+.find-trainer-container .find-form {
+	width:100%;
+	max-width:900px
+}
+.find-trainer-container .find-form .form-section {
+	margin-bottom:40px
+}
+.find-trainer-container .find-form .form-section h3 {
+	font-size:20px;
+	font-weight:700;
+	margin-bottom:15px;
+	color:#000
+}
+.find-trainer-container .find-form .find-button-box {
+	display:flex;
+	gap:20px;
+	justify-content:center;
+	margin-top:50px
+}
+.find-trainer-container .find-form .find-button-box .btn-large {
+	padding:15px 50px;
+	font-size:20px
+}
+.search-result-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.search-result-container .search-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.search-result-container .search-logo img {
+	width:100%;
+	height:auto
+}
+.search-result-container .search-title {
+	font-size:32px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:15px;
+	text-align:center
+}
+.search-result-container .search-count {
+	font-size:18px;
+	color:#7f7f7f;
+	margin-bottom:40px;
+	text-align:center
+}
+.search-result-container .search-count strong {
+	color:#659bd4;
+	font-size:22px
+}
+.search-result-container .trainer-list {
+	width:100%;
+	max-width:900px;
+	margin-bottom:40px
+}
+.search-result-container .trainer-list .no-result {
+	text-align:center;
+	padding:60px 20px;
+	background:#f5f5f5;
+	border-radius:15px
+}
+.search-result-container .trainer-list .no-result p {
+	font-size:20px;
+	color:#7f7f7f;
+	margin-bottom:30px
+}
+.search-result-container .trainer-list .trainer-item {
+	display:flex;
+	gap:30px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:15px;
+	padding:25px;
+	margin-bottom:25px;
+	transition:all .3s ease
+}
+.search-result-container .trainer-list .trainer-item:hover {
+	box-shadow:0 4px 16px rgba(0,0,0,0.1)
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-image {
+	width:200px;
+	height:200px;
+	flex-shrink:0;
+	border-radius:10px;
+	overflow:hidden;
+	background:#f5f5f5;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-image img {
+	width:100%;
+	height:100%;
+	object-fit:cover
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-image .no-image {
+	color:#7f7f7f;
+	font-size:16px
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-info {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-info h3 {
+	font-size:24px;
+	font-weight:700;
+	color:#000;
+	margin:0 0 15px 0
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-info .trainer-major {
+	font-size:16px;
+	color:#000;
+	margin-bottom:10px
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-info .trainer-major strong {
+	color:#659bd4
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-info .trainer-greet {
+	font-size:15px;
+	color:#7f7f7f;
+	line-height:1.6;
+	margin-bottom:20px;
+	flex:1
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-info .btn-book-trainer {
+	align-self:flex-start;
+	padding:12px 40px;
+	font-size:18px;
+	font-weight:700;
+	background:#659bd4;
+	color:#fff;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.search-result-container .trainer-list .trainer-item .trainer-item-info .btn-book-trainer:hover {
+	background:#4d7ba8
+}
+.search-result-container .search-bottom-buttons {
+	display:flex;
+	gap:20px
+}
+.search-result-container .search-bottom-buttons .btn-large {
+	padding:15px 40px;
+	font-size:18px
+}
+@media(max-width:768px) {
+	.booking-section {
+		margin-bottom:20px
+	}
+	.booking-section .btn-booking {
+		padding:12px 40px;
+		font-size:18px
+	}
+	.book-container,.find-trainer-container,.search-result-container {
+		padding:20px 20px
+	}
+	.book-container .book-logo,.find-trainer-container .find-logo,.search-result-container .search-logo,.book-container .find-logo,.find-trainer-container .book-logo,.search-result-container .book-logo,.book-container .search-logo,.find-trainer-container .search-logo,.search-result-container .search-logo {
+		max-width:120px
+	}
+	.book-container .welcome-message h1,.find-trainer-container .find-title,.search-result-container .search-title,.book-container .find-title,.find-trainer-container .welcome-message h1,.search-result-container .welcome-message h1,.book-container .search-title,.find-trainer-container .search-title,.search-result-container .find-title {
+		font-size:24px
+	}
+	.book-container .book-button-box,.find-trainer-container .find-button-box,.search-result-container .search-bottom-buttons,.book-container .find-button-box,.find-trainer-container .book-button-box,.search-result-container .book-button-box,.book-container .search-bottom-buttons,.find-trainer-container .search-bottom-buttons,.search-result-container .find-button-box {
+		max-width:100%
+	}
+	.book-container .booked-trainers-list .booked-trainer-item,.find-trainer-container .booked-trainers-list .booked-trainer-item,.search-result-container .booked-trainers-list .booked-trainer-item {
+		flex-direction:column
+	}
+	.book-container .booked-trainers-list .booked-trainer-item .booked-trainer-image,.find-trainer-container .booked-trainers-list .booked-trainer-item .booked-trainer-image,.search-result-container .booked-trainers-list .booked-trainer-item .booked-trainer-image {
+		width:100%;
+		height:200px
+	}
+	.book-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item,.find-trainer-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item,.search-result-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item {
+		flex-direction:column;
+		gap:5px
+	}
+	.book-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item .info-label,.find-trainer-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item .info-label,.search-result-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item .info-label {
+		min-width:auto
+	}
+	.search-result-container .trainer-item {
+		flex-direction:column
+	}
+	.search-result-container .trainer-item .trainer-item-image {
+		width:100%;
+		height:250px
+	}
+	.search-result-container .trainer-item .trainer-item-info .btn-book-trainer {
+		align-self: stretch
+	}
+}
+.unlogin-book-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.unlogin-book-container .unlogin-book-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.unlogin-book-container .unlogin-book-logo img {
+	width:100%;
+	height:auto
+}
+.unlogin-book-container .unlogin-book-title {
+	font-size:32px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:15px;
+	text-align:center
+}
+.unlogin-book-container .unlogin-book-subtitle {
+	font-size:18px;
+	color:#7f7f7f;
+	margin-bottom:40px;
+	text-align:center
+}
+.unlogin-book-container .unlogin-book-form {
+	width:100%;
+	max-width:900px
+}
+.unlogin-book-container .unlogin-book-form .form-group {
+	margin-bottom:30px
+}
+.unlogin-book-container .unlogin-book-form .form-group label {
+	display:block;
+	margin-bottom:10px;
+	font-weight:700;
+	font-size:18px
+}
+.unlogin-book-container .unlogin-book-form .form-group input[type="text"] {
+	width:100%;
+	padding:15px 20px;
+	font-size:16px;
+	border:1px solid #ddd;
+	border-radius:10px
+}
+.unlogin-book-container .unlogin-book-form .form-group input[type="text"]:focus {
+	outline:none;
+	border-color:#659bd4
+}
+.unlogin-book-container .unlogin-book-button-box {
+	display:flex;
+	gap:20px;
+	justify-content:center;
+	margin-top:50px
+}
+.unlogin-book-container .unlogin-book-button-box .btn-large {
+	padding:15px 50px;
+	font-size:20px
+}
+.trainer-book-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.trainer-book-container .trainer-book-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.trainer-book-container .trainer-book-logo img {
+	width:100%;
+	height:auto
+}
+.trainer-book-container .unlogin-book-waiting {
+	width:100%;
+	max-width:600px;
+	background:#fff;
+	border:2px solid #4caf50;
+	border-radius:15px;
+	padding:30px;
+	margin-bottom:40px;
+	text-align:center;
+	transition:all .3s ease;
+	box-shadow:0 2px 8px rgba(76,175,80,0.2)
+}
+.trainer-book-container .unlogin-book-waiting:hover {
+	transform:translateY(-3px);
+	box-shadow:0 4px 16px rgba(76,175,80,0.3)
+}
+.trainer-book-container .unlogin-book-waiting h2 {
+	font-size:22px;
+	font-weight:700;
+	color:#4caf50;
+	margin:0 0 15px 0
+}
+.trainer-book-container .unlogin-book-waiting .waiting-count {
+	font-size:40px;
+	font-weight:700;
+	color:#4caf50;
+	margin:20px 0
+}
+.trainer-book-container .unlogin-book-waiting .waiting-count strong {
+	font-size:50px
+}
+.trainer-book-container .unlogin-book-waiting .waiting-desc {
+	font-size:14px;
+	color:#7f7f7f;
+	margin:10px 0 0 0
+}
+.trainer-book-container .trainer-book-button-box {
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+	width:100%;
+	max-width:500px
+}
+.unlogin-list-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.unlogin-list-container .unlogin-list-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.unlogin-list-container .unlogin-list-logo img {
+	width:100%;
+	height:auto
+}
+.unlogin-list-container .unlogin-list-title {
+	font-size:32px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:15px;
+	text-align:center
+}
+.unlogin-list-container .unlogin-list-subtitle {
+	font-size:18px;
+	color:#7f7f7f;
+	margin-bottom:40px;
+	text-align:center
+}
+.unlogin-list-container .unlogin-list-subtitle strong {
+	color:#4caf50;
+	font-size:22px
+}
+.unlogin-list-container .unlogin-table-wrapper {
+	width:100%;
+	max-width:1200px;
+	overflow-x:auto;
+	margin-bottom:40px
+}
+.unlogin-list-container .unlogin-table {
+	width:100%;
+	border-collapse:collapse;
+	background:#fff;
+	box-shadow:0 2px 8px rgba(0,0,0,0.1);
+	border-radius:10px;
+	overflow:hidden
+}
+.unlogin-list-container .unlogin-table thead {
+	background:#659bd4;
+	color:#fff
+}
+.unlogin-list-container .unlogin-table th {
+	padding:15px 10px;
+	font-size:16px;
+	font-weight:700;
+	text-align:center
+}
+.unlogin-list-container .unlogin-table td {
+	padding:15px 10px;
+	font-size:14px;
+	text-align:center;
+	border-bottom:1px solid #ddd
+}
+.unlogin-list-container .unlogin-table tbody tr:hover {
+	background:#f5f5f5
+}
+.unlogin-list-container .unlogin-table tbody tr:last-child td {
+	border-bottom:none
+}
+.unlogin-list-container .unlogin-table .btn-approve {
+	padding:8px 20px;
+	font-size:14px;
+	font-weight:700;
+	background:#4caf50;
+	color:#fff;
+	border:none;
+	border-radius:5px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.unlogin-list-container .unlogin-table .btn-approve:hover {
+	background:#3d8b40
+}
+.unlogin-list-container .no-data {
+	width:100%;
+	max-width:900px;
+	text-align:center;
+	padding:60px 20px;
+	background:#f5f5f5;
+	border-radius:15px;
+	margin-bottom:40px
+}
+.unlogin-list-container .no-data p {
+	font-size:20px;
+	color:#7f7f7f
+}
+.unlogin-list-container .unlogin-list-button-box {
+	display:flex;
+	gap:20px;
+	justify-content:center
+}
+.unlogin-list-container .unlogin-list-button-box .btn-large {
+	padding:15px 40px;
+	font-size:18px
+}
+@media(max-width:768px) {
+	.unlogin-book-container,.trainer-book-container,.unlogin-list-container {
+		padding:20px 20px
+	}
+	.unlogin-book-container .unlogin-book-logo,.trainer-book-container .trainer-book-logo,.unlogin-list-container .unlogin-list-logo {
+		max-width:120px
+	}
+	.unlogin-book-container .unlogin-book-title,.trainer-book-container .unlogin-list-title,.unlogin-list-container .unlogin-list-title {
+		font-size:24px
+	}
+	.unlogin-book-container .unlogin-book-button-box,.unlogin-list-container .unlogin-list-button-box {
+		flex-direction:column;
+		width:100%
+	}
+	.unlogin-book-container .unlogin-book-button-box .btn-large,.unlogin-list-container .unlogin-list-button-box .btn-large {
+		width:100%
+	}
+	.unlogin-list-container .unlogin-table {
+		font-size:12px
+	}
+	.unlogin-list-container .unlogin-table th,.unlogin-list-container .unlogin-table td {
+		padding:10px 5px
+	}
+}
+.trainer-book-list-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:40px 50px
+}
+.trainer-book-list-container .trainer-book-list-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.trainer-book-list-container .trainer-book-list-logo img {
+	width:100%;
+	height:auto
+}
+.trainer-book-list-container .trainer-book-list-title {
+	font-size:32px;
+	font-weight:700;
+	color:#659bd4;
+	margin-bottom:30px;
+	text-align:center
+}
+.trainer-book-list-container .total-booking-count {
+	background:#659bd4;
+	padding:20px 40px;
+	border-radius:15px;
+	margin-bottom:50px;
+	text-align:center
+}
+.trainer-book-list-container .total-booking-count p {
+	font-size:22px;
+	color:#fff;
+	margin:0
+}
+.trainer-book-list-container .total-booking-count p strong {
+	color:#fff;
+	font-size:28px
+}
+.trainer-book-list-container .booking-section-wrapper {
+	width:100%;
+	max-width:1200px;
+	margin-bottom:50px
+}
+.trainer-book-list-container .booking-section-wrapper .section-title {
+	font-size:24px;
+	font-weight:700;
+	color:#000;
+	margin-bottom:20px;
+	text-align:left
+}
+.trainer-book-list-container .booking-section-wrapper .section-title strong {
+	color:#659bd4
+}
+.trainer-book-list-container .booking-table-wrapper {
+	width:100%;
+	overflow-x:auto;
+	margin-bottom:20px
+}
+.trainer-book-list-container .booking-table {
+	width:100%;
+	border-collapse:collapse;
+	background:#fff;
+	box-shadow:0 2px 8px rgba(0,0,0,0.1);
+	border-radius:10px;
+	overflow:hidden
+}
+.trainer-book-list-container .booking-table thead {
+	background:#659bd4;
+	color:#fff
+}
+.trainer-book-list-container .booking-table th {
+	padding:15px 10px;
+	font-size:16px;
+	font-weight:700;
+	text-align:center
+}
+.trainer-book-list-container .booking-table td {
+	padding:15px 10px;
+	font-size:14px;
+	text-align:center;
+	border-bottom:1px solid #ddd
+}
+.trainer-book-list-container .booking-table tbody tr:hover {
+	background:#f5f5f5
+}
+.trainer-book-list-container .booking-table tbody tr:last-child td {
+	border-bottom:none
+}
+.trainer-book-list-container .no-data {
+	width:100%;
+	text-align:center;
+	padding:40px 20px;
+	background:#f5f5f5;
+	border-radius:15px
+}
+.trainer-book-list-container .no-data p {
+	font-size:18px;
+	color:#7f7f7f;
+	margin:0
+}
+.trainer-book-list-container .trainer-book-list-button-box {
+	display:flex;
+	gap:20px;
+	justify-content:center;
+	width:100%;
+	max-width:600px
+}
+.trainer-book-list-container .trainer-book-list-button-box .btn-large {
+	padding:15px 40px;
+	font-size:18px
+}
+.trainer-book-container .trainer-book-button-box .btn-book.btn-secondary {
+	background:#4caf50;
+	color:#fff
+}
+.trainer-book-container .trainer-book-button-box .btn-book.btn-secondary:hover {
+	background:#3d8b40
+}
+@media(max-width:768px) {
+	.trainer-book-list-container {
+		padding:20px 20px
+	}
+	.trainer-book-list-container .trainer-book-list-logo {
+		max-width:120px
+	}
+	.trainer-book-list-container .trainer-book-list-title {
+		font-size:24px
+	}
+	.trainer-book-list-container .total-booking-count p {
+		font-size:18px
+	}
+	.trainer-book-list-container .total-booking-count p strong {
+		font-size:22px
+	}
+	.trainer-book-list-container .booking-section-wrapper .section-title {
+		font-size:20px
+	}
+	.trainer-book-list-container .booking-table {
+		font-size:12px
+	}
+	.trainer-book-list-container .booking-table th,.trainer-book-list-container .booking-table td {
+		padding:10px 5px
+	}
+	.trainer-book-list-container .trainer-book-list-button-box {
+		flex-direction:column;
+		width:100%
+	}
+	.trainer-book-list-container .trainer-book-list-button-box .btn-large {
+		width:100%
+	}
+}

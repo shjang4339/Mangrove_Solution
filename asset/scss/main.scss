@@ -249,37 +249,77 @@ button {
         max-width: 800px;
     }
 
-    .login-section {
+    // User Type Section (Customer / Trainer)
+    .user-type-section {
         display: flex;
-        gap: 20px;
+        gap: 30px;
+        width: 100%;
+        max-width: 900px;
         margin-bottom: 60px;
 
-        .btn-large {
-            padding: 15px 50px;
-            font-size: 20px;
-            font-weight: 700;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
+        .user-type-box {
+            flex: 1;
+            background: $color-white;
+            border: 2px solid #ddd;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-            &.btn-primary {
-                background: $color-primary;
-                color: $color-white;
-
-                &:hover {
-                    background: darken($color-primary, 10%);
-                }
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+                border-color: $color-primary;
             }
 
-            &.btn-secondary {
-                background: $color-white;
+            h3 {
+                font-size: 28px;
+                font-weight: 700;
                 color: $color-primary;
-                border: 2px solid $color-primary;
+                margin: 0 0 15px 0;
+            }
 
-                &:hover {
-                    background: $color-primary;
-                    color: $color-white;
+            p {
+                font-size: 16px;
+                color: $color-gray;
+                margin: 0 0 30px 0;
+                line-height: 1.5;
+            }
+
+            .box-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                .btn-box {
+                    padding: 12px 30px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    border: none;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+
+                    &.btn-primary {
+                        background: $color-primary;
+                        color: $color-white;
+
+                        &:hover {
+                            background: darken($color-primary, 10%);
+                        }
+                    }
+
+                    &.btn-secondary {
+                        background: $color-white;
+                        color: $color-primary;
+                        border: 2px solid $color-primary;
+
+                        &:hover {
+                            background: $color-primary;
+                            color: $color-white;
+                        }
+                    }
                 }
             }
         }
@@ -658,7 +698,7 @@ button {
     }
 
     .booking-count {
-        background: #f5f5f5;
+        background: $color-primary;
         padding: 20px 40px;
         border-radius: 15px;
         margin-bottom: 40px;
@@ -666,11 +706,107 @@ button {
 
         p {
             font-size: 20px;
-            color: $color-black;
+            color: $color-white;
 
             strong {
-                color: $color-primary;
+                color: $color-white;
                 font-size: 24px;
+            }
+        }
+    }
+
+    .booked-trainers-container {
+        width: 100%;
+        max-width: 900px;
+        margin-bottom: 40px;
+
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: $color-primary;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .booked-trainers-list {
+            max-height: 500px;
+            overflow-y: scroll;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 15px;
+            background: #f9f9f9;
+
+            .booked-trainer-item {
+                display: flex;
+                gap: 25px;
+                background: $color-white;
+                border: 1px solid #ddd;
+                border-radius: 12px;
+                padding: 20px;
+                margin-bottom: 20px;
+                transition: all 0.3s ease;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                &:hover {
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                .booked-trainer-image {
+                    width: 180px;
+                    height: 180px;
+                    flex-shrink: 0;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    background: #f5f5f5;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    .no-image {
+                        color: $color-gray;
+                        font-size: 14px;
+                    }
+                }
+
+                .booked-trainer-info {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+
+                    h3 {
+                        font-size: 22px;
+                        font-weight: 700;
+                        color: $color-primary;
+                        margin: 0 0 10px 0;
+                    }
+
+                    .info-item {
+                        display: flex;
+                        gap: 10px;
+                        line-height: 1.6;
+
+                        .info-label {
+                            font-weight: 700;
+                            color: $color-black;
+                            min-width: 100px;
+                        }
+
+                        .info-value {
+                            color: $color-gray;
+                            flex: 1;
+                        }
+                    }
+                }
             }
         }
     }
@@ -715,6 +851,15 @@ button {
 
                 &:hover {
                     background: darken(#ddd, 10%);
+                }
+            }
+
+            &.btn-primary {
+                background: $color-primary;
+                color: $color-white;
+
+                &:hover {
+                    background: darken($color-primary, 10%);
                 }
             }
         }
@@ -970,6 +1115,28 @@ button {
         .find-button-box,
         .search-bottom-buttons {
             max-width: 100%;
+        }
+
+        .booked-trainers-list {
+            .booked-trainer-item {
+                flex-direction: column;
+
+                .booked-trainer-image {
+                    width: 100%;
+                    height: 200px;
+                }
+
+                .booked-trainer-info {
+                    .info-item {
+                        flex-direction: column;
+                        gap: 5px;
+
+                        .info-label {
+                            min-width: auto;
+                        }
+                    }
+                }
+            }
         }
     }
 

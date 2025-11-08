@@ -20,25 +20,48 @@
             <!-- 서브 타이틀 -->
             <p class="main-subtitle">장애 아동, 성인 장애인, 질환 및 희귀질환 전문 재활 운동 서비스 제공</p>
 
-            <!-- 상담 예약 버튼 -->
+            <!-- 상담 예약/관리 버튼 -->
             <div class="booking-section">
-                <button class="btn-large btn-booking" onclick="location.href='book.php'">상담 예약</button>
+                <?php if ($is_logged_in && $user_type === 'trainer'): ?>
+                    <button class="btn-large btn-booking" onclick="location.href='trainer_book.php'">상담 관리</button>
+                <?php else: ?>
+                    <button class="btn-large btn-booking" onclick="location.href='book.php'">상담 예약</button>
+                <?php endif; ?>
             </div>
 
-            <!-- 로그인 섹션 -->
-            <div class="login-section">
-                <button class="btn-large btn-secondary" onclick="location.href='join_member.php'">회원가입</button>
-                <button class="btn-large btn-primary" onclick="location.href='login.php?type=member'">로그인</button>
+            <!-- 회원 유형 선택 섹션 (로그인하지 않은 경우만 표시) -->
+            <?php if (!$is_logged_in): ?>
+            <div class="user-type-section">
+                <!-- 고객 박스 -->
+                <div class="user-type-box">
+                    <h3>고객</h3>
+                    <p>재활 운동 서비스를 받고 싶으신가요?</p>
+                    <div class="box-buttons">
+                        <button class="btn-box btn-primary" onclick="location.href='join_member.php'">회원가입</button>
+                        <button class="btn-box btn-secondary" onclick="location.href='login.php?type=member'">로그인</button>
+                        <button class="btn-box btn-tertiary" onclick="location.href='unlogin_book_form.php'">비회원 전화예약</button>
+                    </div>
+                </div>
+
+                <!-- 트레이너 박스 -->
+                <div class="user-type-box">
+                    <h3>트레이너</h3>
+                    <p>재활 운동 전문가로 활동하고 싶으신가요?</p>
+                    <div class="box-buttons">
+                        <button class="btn-box btn-primary" onclick="location.href='join_trainer.php'">회원가입</button>
+                        <button class="btn-box btn-secondary" onclick="location.href='login.php?type=trainer'">로그인</button>
+                    </div>
+                </div>
             </div>
+            <?php endif; ?>
 
             <!-- 신규 재활 운동 트레이너 -->
             <div class="trainer-header">
                 <h2>신규 재활 운동 트레이너</h2>
-                <button class="btn-trainer-login" onclick="location.href='login.php?type=trainer'">트레이너 로그인</button>
             </div>
 
             <!-- 트레이너 스와이퍼 -->
-            <div class="swiper trainerSwiper">
+            <div class="swiper gallery-swiper">
                 <div class="swiper-wrapper">
                     <?php foreach ($trainers as $trainer): ?>
                     <div class="swiper-slide">
@@ -83,33 +106,19 @@
 
         <script>
             // Swiper 초기화
-            const swiper = new Swiper('.trainerSwiper', {
-                // 가로 방향 슬라이드
-                direction: 'horizontal',
-
-                // 드래그/스와이프 활성화
-                grabCursor: true,
-                touchRatio: 1,
-                touchAngle: 45,
-
-                // 슬라이드 설정
+            const swiper = new Swiper('.gallery-swiper', {
                 slidesPerView: 1,
                 spaceBetween: 20,
-                loop: true,
-
-                // 네비게이션 버튼
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-
-                // 페이지네이션
+                loop: false,
+                watchOverflow: true,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
-
-                // 반응형 브레이크포인트
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
                 breakpoints: {
                     640: {
                         slidesPerView: 2,
@@ -120,7 +129,7 @@
                         spaceBetween: 30,
                     },
                     1024: {
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                         spaceBetween: 30,
                     },
                 }
