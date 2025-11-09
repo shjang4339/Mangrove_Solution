@@ -30,10 +30,14 @@ $user_type = $_SESSION['user_type'] ?? '';
 <!-- 헤더 네비게이션 (로그인 상태 표시) -->
 <header class="site-header">
     <div class="header-content">
+        <button class="btn-home" onclick="location.href='index.php'">
+            <img src="asset/image/home.svg" alt="홈">
+        </button>
         <?php if ($is_logged_in): ?>
             <div class="user-info">
                 <span class="user-name"><?= htmlspecialchars($user_name) ?></span>
                 <span class="user-type">(<?= $user_type === 'member' ? '고객' : '트레이너' ?>)</span>
+                <button class="btn-myinfo" onclick="location.href='my_info_<?= $user_type ?>.php'">내 정보</button>
                 <button class="btn-logout" onclick="location.href='asset/controller/logout.php'">로그아웃</button>
             </div>
         <?php endif; ?>

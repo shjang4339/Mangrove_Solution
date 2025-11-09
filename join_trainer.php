@@ -41,10 +41,22 @@
                     <span class="ntnll">전화번호</span>
                     <input id="phone" type="text" value=""/>
                 </label>
-                <label>
+                <div>
                     <span class="ntnll">이메일 주소</span>
-                    <input id="email" type="text" value=""/>
-                </label>
+                    <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+                        <input id="emailId" type="text" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px;"/>
+                        <span style="font-size:18px; color:#000;">@</span>
+                        <select id="emailDomain" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; background:#fff; cursor:pointer;">
+                            <option value="">선택하세요</option>
+                            <option value="naver.com">naver.com</option>
+                            <option value="nate.com">nate.com</option>
+                            <option value="gmail.com">gmail.com</option>
+                            <option value="kakao.com">kakao.com</option>
+                            <option value="direct">직접 입력</option>
+                        </select>
+                        <input id="emailDomainDirect" type="text" placeholder="도메인 입력" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; display:none;"/>
+                    </div>
+                </div>
                 <label>
                     <span class="ntnll">학위 / 전공명</span>
                     <input id="major" type="text" value=""/>
@@ -111,9 +123,9 @@
                     <textarea id="greet" rows="4" style="width: 100%; max-width: 400px; padding: 10px; border-radius: 10px;"></textarea>
                 </label>
 
-                <div class="btn-box">
-                    <button class="confirm">가입하기</button>
-                    <button>가입취소</button>
+                <div class="my-info-button-box">
+                    <button class="btn-large btn-primary confirm">가입하기</button>
+                    <button class="btn-large btn-cancel" onclick="location.href='index.php'">가입취소</button>
                 </div>
             </div>
             
@@ -121,6 +133,17 @@
         </section>
         <?php include 'footer.php'; ?>
         <script>
+            $(document).ready(function() {
+                // 이메일 도메인 선택 변경 이벤트
+                $('#emailDomain').on('change', function() {
+                    if ($(this).val() === 'direct') {
+                        $('#emailDomainDirect').show();
+                    } else {
+                        $('#emailDomainDirect').hide().val('');
+                    }
+                });
+            });
+
             // 이미지 파일 선택 시 미리보기
             $('#trainerImage').on('change', function() {
                 let file = this.files[0];
@@ -151,13 +174,15 @@
                 $('#imagePreview').text('선택된 파일: ' + file.name).css('color', '#666');
             });
 
-            $('.btn-box > .confirm').on('click', function() {
+            $('.my-info-button-box > .confirm').on('click', function() {
                 let id = $('#id').val().trim();
                 let password = $('#password').val();
                 let password_check = $('#password_check').val();
                 let name = $('#name').val().trim();
                 let phone = $('#phone').val().trim();
-                let email = $('#email').val().trim();
+                let emailId = $('#emailId').val().trim();
+                let emailDomain = $('#emailDomain').val();
+                let emailDomainDirect = $('#emailDomainDirect').val().trim();
                 let major = $('#major').val().trim();
                 let license = $('#license').val().trim();
                 let sublicense1 = $('#sublicense1').val().trim();
@@ -203,11 +228,30 @@
                     return;
                 }
 
-                if (!email) {
+                // 이메일 ID 필수 확인
+                if (!emailId) {
                     alert('이메일 주소를 입력해주세요.');
-                    $('#email').focus();
+                    $('#emailId').focus();
                     return;
                 }
+
+                // 이메일 도메인 선택 확인
+                if (!emailDomain) {
+                    alert('이메일 도메인을 선택해주세요.');
+                    $('#emailDomain').focus();
+                    return;
+                }
+
+                // 직접 입력 선택 시 도메인 입력 확인
+                if (emailDomain === 'direct' && !emailDomainDirect) {
+                    alert('이메일 도메인을 입력해주세요.');
+                    $('#emailDomainDirect').focus();
+                    return;
+                }
+
+                // 최종 이메일 조합
+                let finalDomain = emailDomain === 'direct' ? emailDomainDirect : emailDomain;
+                let email = emailId + '@' + finalDomain;
 
                 if (!major) {
                     alert('학위/전공명을 입력해주세요.');
@@ -270,7 +314,7 @@
                                     phone: phone,
                                     email: email,
                                     major: major,
-                                    image: uploadResponse.filename,
+                                    image: uploadResponse.image_name,
                                     license: license,
                                     sublicense_1: sublicense1,
                                     sublicense_2: sublicense2,

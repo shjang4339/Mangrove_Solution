@@ -1,5 +1,9 @@
+* {
+	box-sizing:border-box
+}
 html {
-	background:#e5e5e5
+	background:#e5e5e5;
+	overflow-x:hidden
 }
 html,body {
 	display:flex;
@@ -8,12 +12,14 @@ html,body {
 	min-height:100%;
 	padding:0;
 	margin:0;
-	font-size:0
+	font-size:0;
+	overflow-x:hidden
 }
 body {
 	max-width:1200px;
 	font-size:20px;
-	background:#fff
+	background:#f8f9fa;
+	box-sizing:border-box
 }
 section {
 	display:flex;
@@ -56,13 +62,14 @@ button {
 	padding:10px 30px;
 	font-size:25px;
 	font-weight:700;
-	border-radius:100px;
+	border-radius:10px;
+	border:none;
 	color:#fff;
 	background:#7f7f7f;
 	cursor:pointer
 }
 button.confirm {
-	background:#659bd4
+	background:#099268
 }
 .title-wrap {
 	display:flex;
@@ -70,7 +77,7 @@ button.confirm {
 	flex-direction:column;
 	width:100%;
 	max-width:900px;
-	margin:0 auto;
+    margin: 90px auto 0;
 	transform:rotate(0.04deg)
 }
 .title-wrap>div {
@@ -87,7 +94,7 @@ button.confirm {
 	display:flex;
 	align-items:center;
 	flex-direction:row;
-	justify-content:space-around;
+    justify-content: space-between;
 	width:100%;
 	margin:10px 0
 }
@@ -113,6 +120,9 @@ button.confirm {
 	width:20%
 }
 .site-header {
+	position: fixed;
+	width: 100%;
+	max-width:1200px;
 	top:0;
 	background:#fff;
 	border-bottom:1px solid #ddd;
@@ -120,10 +130,28 @@ button.confirm {
 }
 .site-header .header-content {
 	display:flex;
-	justify-content:flex-end;
+	justify-content:space-between;
+	align-items:center;
 	padding:15px 30px;
-	max-width:1200px;
 	margin:0 auto
+}
+.site-header .header-content .btn-home {
+	padding:5px;
+	background:transparent;
+	border:none;
+	cursor:pointer;
+	transition:all .3s ease;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+.site-header .header-content .btn-home img {
+	width:30px;
+	height:30px;
+	display:block
+}
+.site-header .header-content .btn-home:hover {
+	opacity:0.7
 }
 .site-header .header-content .user-info {
 	display:flex;
@@ -132,11 +160,24 @@ button.confirm {
 }
 .site-header .header-content .user-info .user-name {
 	font-weight:700;
-	color:#659bd4
+	color:#099268
 }
 .site-header .header-content .user-info .user-type {
 	font-weight:400;
 	color:#7f7f7f
+}
+.site-header .header-content .user-info .btn-myinfo {
+	padding:5px 20px;
+	font-size:16px;
+	background:#099268;
+	color:#fff;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	margin-right:10px
+}
+.site-header .header-content .user-info .btn-myinfo:hover {
+	background:#077a54
 }
 .site-header .header-content .user-info .btn-logout {
 	padding:5px 20px;
@@ -144,7 +185,7 @@ button.confirm {
 	background:#7f7f7f;
 	color:#fff;
 	border:none;
-	border-radius:20px;
+	border-radius:10px;
 	cursor:pointer
 }
 .site-header .header-content .user-info .btn-logout:hover {
@@ -153,13 +194,13 @@ button.confirm {
 .main-container {
 	display:flex;
 	flex-direction:column;
-	align-items:center;
+	align-items: flex-start;
 	width:100%;
-	padding:40px 50px
+    padding: 80px 50px 40px;
 }
 .main-container .main-logo {
 	margin-bottom:30px;
-	max-width:200px
+	max-width:150px
 }
 .main-container .main-logo img {
 	width:100%;
@@ -168,18 +209,21 @@ button.confirm {
 .main-container .main-title {
 	font-size:36px;
 	font-weight:700;
-	color:#659bd4;
 	margin-bottom:20px;
 	text-align:center
 }
+.main-container .main-title b {
+	font-weight: 700;
+	color: #099268;
+}
 .main-container .main-subtitle {
-	background:#4caf50;
-	color:#fff;
-	padding:15px 30px;
+	/* background:#4caf50; */
+	/* color:#fff; */
+	/* padding:15px 30px; */
 	border-radius:10px;
 	font-size:18px;
-	font-weight:600;
-	text-align:center;
+	/* font-weight:600; */
+	/* text-align:center; */
 	margin-bottom:40px;
 	max-width:800px
 }
@@ -187,7 +231,7 @@ button.confirm {
 	display:flex;
 	gap:30px;
 	width:100%;
-	max-width:900px;
+	/* max-width:900px; */
 	margin-bottom:60px
 }
 .main-container .user-type-section .user-type-box {
@@ -203,12 +247,12 @@ button.confirm {
 .main-container .user-type-section .user-type-box:hover {
 	transform:translateY(-5px);
 	box-shadow:0 4px 16px rgba(0,0,0,0.15);
-	border-color:#659bd4
+	border-color:#099268
 }
 .main-container .user-type-section .user-type-box h3 {
 	font-size:28px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin:0 0 15px 0
 }
 .main-container .user-type-section .user-type-box p {
@@ -232,7 +276,7 @@ button.confirm {
 	transition:all .3s ease
 }
 .main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-primary {
-	background:#659bd4;
+	background:#099268;
 	color:#fff
 }
 .main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-primary:hover {
@@ -240,11 +284,11 @@ button.confirm {
 }
 .main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-secondary {
 	background:#fff;
-	color:#659bd4;
-	border:2px solid #659bd4
+	color:#099268;
+	border:2px solid #099268
 }
 .main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-secondary:hover {
-	background:#659bd4;
+	background:#099268;
 	color:#fff
 }
 .main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-tertiary {
@@ -276,7 +320,7 @@ button.confirm {
 	background:#7f7f7f;
 	color:#fff;
 	border:none;
-	border-radius:30px;
+	border-radius:10px;
 	cursor:pointer
 }
 .main-container .trainer-header .btn-trainer-login:hover {
@@ -349,10 +393,13 @@ button.confirm {
 	margin:0
 }
 .main-container .gallery-swiper .swiper-button-next,.main-container .gallery-swiper .swiper-button-prev {
-	color:#659bd4
+	color:#099268;
+	top:auto;
+	bottom:0;
+	z-index:20
 }
 .main-container .gallery-swiper .swiper-pagination-bullet-active {
-	background:#659bd4
+	background:#099268
 }
 .main-container .sponsor-section {
 	margin-top:60px;
@@ -368,12 +415,16 @@ button.confirm {
 .main-container .sponsor-section .sponsor-logos {
 	display:flex;
 	justify-content:center;
-	gap:40px;
+	gap:60px;
 	flex-wrap:wrap
 }
-.main-container .sponsor-section .sponsor-logos .sponsor-logo {
-	width:200px;
-	height:100px;
+.main-container .sponsor-section .sponsor-logos .sponsor-item {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	gap:20px
+}
+.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-logo {
 	display:flex;
 	align-items:center;
 	justify-content:center;
@@ -382,10 +433,31 @@ button.confirm {
 	padding:20px;
 	background:#fff
 }
-.main-container .sponsor-section .sponsor-logos .sponsor-logo img {
+.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-logo img {
 	max-width:100%;
 	max-height:100%;
 	object-fit:contain
+}
+.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-info {
+	text-align:center
+}
+.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-info .sponsor-category {
+	font-size:14px;
+	font-weight:600;
+	color:#1C7ED6;
+	margin:0 0 8px 0
+}
+.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-info .sponsor-name {
+	font-size:24px;
+	font-weight:700;
+	color:#000;
+	margin:0 0 5px 0
+}
+.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-info .sponsor-subtitle {
+	font-size:16px;
+	font-weight:400;
+	color:#000;
+	margin:0
 }
 .login-container {
 	display:flex;
@@ -394,7 +466,7 @@ button.confirm {
 	justify-content:center;
 	min-height:80vh;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
 }
 .login-container .login-logo {
 	margin-bottom:50px;
@@ -437,7 +509,7 @@ button.confirm {
 }
 .login-container .login-form label input:focus {
 	outline:none;
-	border-color:#659bd4
+	border-color:#099268
 }
 .login-container .login-form .login-buttons {
 	display:flex;
@@ -456,7 +528,7 @@ button.confirm {
 	transition:all .3s ease
 }
 .login-container .login-form .login-buttons .btn-large.btn-primary {
-	background:#659bd4;
+	background:#099268;
 	color:#fff
 }
 .login-container .login-form .login-buttons .btn-large.btn-primary:hover {
@@ -478,15 +550,23 @@ button.confirm {
 	box-shadow:0 0 0 3px rgba(76,175,80,0.3)
 }
 .login-container .login-form .login-buttons .btn-large.btn-cancel {
-	background:#7f7f7f;
-	color:#fff
+	background:#e9ecef;
+	color:#000
 }
 .login-container .login-form .login-buttons .btn-large.btn-cancel:hover {
-	background:#666
+	background:#d3d5d7
 }
 @media(max-width:768px) {
+	body {
+		max-width: 760px;
+	}
 	.main-container {
-		padding:20px 20px
+		padding:80px 0px 20px
+	}
+	.main-container > h1,
+	.main-container > div {
+		padding-right: 20px;
+		padding-left: 20px; 
 	}
 	.main-container .main-title {
 		font-size:28px
@@ -510,8 +590,33 @@ button.confirm {
 	.main-container .trainer-header h2 {
 		font-size:24px
 	}
+	.main-container .user-type-section {
+		flex-direction:column;
+		gap:20px;
+		padding:0 20px
+	}
+	.main-container .user-type-section .user-type-box {
+		width:100%
+	}
+	.main-container .gallery-swiper {
+		padding:20px 20px 60px;
+		max-width:100%
+	}
+	.main-container .sponsor-section .sponsor-logos {
+		gap:30px
+	}
+	.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-logo {
+		width:150px;
+		padding:15px
+	}
+	.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-info .sponsor-name {
+		font-size:20px
+	}
+	.main-container .sponsor-section .sponsor-logos .sponsor-item .sponsor-info .sponsor-subtitle {
+		font-size:14px
+	}
 	.login-container {
-		padding:20px 20px
+		padding:80px 20px 20px
 	}
 	.login-container .login-logo {
 		max-width:200px
@@ -527,7 +632,9 @@ button.confirm {
 .booking-section {
 	display:flex;
 	justify-content:center;
-	margin-bottom:30px
+	margin-bottom:30px;
+	padding:30px;
+	border-radius:15px
 }
 .booking-section .btn-booking {
 	padding:15px 60px;
@@ -536,7 +643,7 @@ button.confirm {
 	background:#4caf50;
 	color:#fff;
 	border:none;
-	border-radius:50px;
+	border-radius:10px;
 	cursor:pointer;
 	transition:all .3s ease;
 	box-shadow:0 4px 12px rgba(76,175,80,0.3)
@@ -550,7 +657,7 @@ button.confirm {
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
 }
 .book-container .book-logo {
 	margin-bottom:40px;
@@ -567,7 +674,7 @@ button.confirm {
 .book-container .welcome-message h1 {
 	font-size:32px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin-bottom:15px
 }
 .book-container .welcome-message p {
@@ -575,8 +682,8 @@ button.confirm {
 	color:#7f7f7f
 }
 .book-container .booking-count {
-	background:#659bd4;
-	padding:20px 40px;
+	background:#099268;
+	padding:10px 40px;
 	border-radius:15px;
 	margin-bottom:40px;
 	text-align:center
@@ -597,7 +704,7 @@ button.confirm {
 .book-container .booked-trainers-container h2 {
 	font-size:24px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin-bottom:20px;
 	text-align:center
 }
@@ -611,23 +718,27 @@ button.confirm {
 }
 .book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item {
 	display:flex;
-	gap:25px;
+    flex-direction: row;
+	gap:20px;
 	background:#fff;
 	border:1px solid #ddd;
 	border-radius:12px;
-	padding:20px;
-	margin-bottom:20px;
-	transition:all .3s ease
+	padding:15px;
+	margin-bottom:15px;
+	transition:all .3s ease;
+	cursor:pointer;
+	align-items:center
 }
 .book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:last-child {
 	margin-bottom:0
 }
 .book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:hover {
-	box-shadow:0 4px 12px rgba(0,0,0,0.1)
+	box-shadow:0 4px 12px rgba(0,0,0,0.15);
+	transform:translateY(-2px)
 }
 .book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image {
-	width:180px;
-	height:180px;
+	width:120px;
+	height:120px;
 	flex-shrink:0;
 	border-radius:10px;
 	overflow:hidden;
@@ -649,67 +760,63 @@ button.confirm {
 	flex:1;
 	display:flex;
 	flex-direction:column;
-	gap:12px
+	gap:8px
 }
 .book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info h3 {
-	font-size:22px;
+	font-size:18px;
 	font-weight:700;
-	color:#659bd4;
-	margin:0 0 10px 0
+	color:#333;
+	margin:0
 }
-.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item {
-	display:flex;
-	gap:10px;
-	line-height:1.6
-}
-.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item .info-label {
-	font-weight:700;
-	color:#000;
-	min-width:100px
-}
-.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .info-item .info-value {
-	color:#7f7f7f;
-	flex:1
+.book-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .trainer-details {
+	font-size:14px;
+	color:#666;
+	line-height:1.6;
+	margin:0
 }
 .book-container .book-button-box {
 	display:flex;
 	flex-direction:column;
 	gap:20px;
 	width:100%;
-	max-width:500px
+	max-width:500px;
+	padding:30px;
+	border-radius:15px
 }
 .book-container .book-button-box .btn-book {
 	padding:20px 40px;
 	font-size:20px;
 	font-weight:700;
 	border:none;
-	border-radius:15px;
+	border-radius:10px;
 	cursor:pointer;
 	transition:all .3s ease
 }
 .book-container .book-button-box .btn-book.btn-gray {
-	background:#7f7f7f;
-	color:#fff
+	background:#e9ecef;
+	color:#000;
+	border:none
 }
 .book-container .book-button-box .btn-book.btn-gray:hover {
-	background:#666
+	background:#d3d5d7
 }
-.book-container .book-button-box .btn-book.btn-yellow {
-	background:#ffd700;
-	color:#000
+.book-container .book-button-box .btn-book.btn-green {
+	background:#099268;
+	color:#fff;
+	border:none
 }
-.book-container .book-button-box .btn-book.btn-yellow:hover {
-	background:#ccac00
+.book-container .book-button-box .btn-book.btn-green:hover {
+	background:#077a54
 }
 .book-container .book-button-box .btn-book.btn-cancel {
-	background:#ddd;
+	background:#e9ecef;
 	color:#000
 }
 .book-container .book-button-box .btn-book.btn-cancel:hover {
-	background:#c4c4c4
+	background:#d3d5d7
 }
 .book-container .book-button-box .btn-book.btn-primary {
-	background:#659bd4;
+	background:#099268;
 	color:#fff
 }
 .book-container .book-button-box .btn-book.btn-primary:hover {
@@ -720,7 +827,7 @@ button.confirm {
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
 }
 .find-trainer-container .find-logo {
 	margin-bottom:40px;
@@ -733,7 +840,7 @@ button.confirm {
 .find-trainer-container .find-title {
 	font-size:32px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin-bottom:15px;
 	text-align:center
 }
@@ -760,7 +867,10 @@ button.confirm {
 	display:flex;
 	gap:20px;
 	justify-content:center;
-	margin-top:50px
+	margin-top:50px;
+	background:#ffffff;
+	padding:30px;
+	border-radius:15px
 }
 .find-trainer-container .find-form .find-button-box .btn-large {
 	padding:15px 50px;
@@ -771,7 +881,7 @@ button.confirm {
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
 }
 .search-result-container .search-logo {
 	margin-bottom:40px;
@@ -784,7 +894,7 @@ button.confirm {
 .search-result-container .search-title {
 	font-size:32px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin-bottom:15px;
 	text-align:center
 }
@@ -795,7 +905,7 @@ button.confirm {
 	text-align:center
 }
 .search-result-container .search-count strong {
-	color:#659bd4;
+	color:#099268;
 	font-size:22px
 }
 .search-result-container .trainer-list {
@@ -865,7 +975,7 @@ button.confirm {
 	margin-bottom:10px
 }
 .search-result-container .trainer-list .trainer-item .trainer-item-info .trainer-major strong {
-	color:#659bd4
+	color:#099268
 }
 .search-result-container .trainer-list .trainer-item .trainer-item-info .trainer-greet {
 	font-size:15px;
@@ -879,7 +989,7 @@ button.confirm {
 	padding:12px 40px;
 	font-size:18px;
 	font-weight:700;
-	background:#659bd4;
+	background:#099268;
 	color:#fff;
 	border:none;
 	border-radius:10px;
@@ -891,11 +1001,91 @@ button.confirm {
 }
 .search-result-container .search-bottom-buttons {
 	display:flex;
-	gap:20px
+	gap:20px;
+	padding:30px;
+	border-radius:15px
 }
 .search-result-container .search-bottom-buttons .btn-large {
 	padding:15px 40px;
 	font-size:18px
+}
+.search-result-container .booked-trainers-container {
+	width:100%;
+	max-width:900px;
+	margin-bottom:40px
+}
+.search-result-container .booked-trainers-container h2 {
+	font-size:24px;
+	font-weight:700;
+	color:#099268;
+	margin-bottom:20px;
+	text-align:center
+}
+.search-result-container .booked-trainers-container .booked-trainers-list {
+	max-height:500px;
+	overflow-y:scroll;
+	padding:10px;
+	border:2px solid #ddd;
+	border-radius:15px;
+	background:#f9f9f9
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item {
+	display:flex;
+	flex-direction:row;
+	gap:20px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:12px;
+	padding:15px;
+	margin-bottom:15px;
+	transition:all .3s ease;
+	cursor:pointer;
+	align-items:center
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:last-child {
+	margin-bottom:0
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:hover {
+	box-shadow:0 4px 12px rgba(0,0,0,0.15);
+	transform:translateY(-2px)
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image {
+	width:120px;
+	height:120px;
+	flex-shrink:0;
+	border-radius:10px;
+	overflow:hidden;
+	background:#f5f5f5;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image img {
+	width:100%;
+	height:100%;
+	object-fit:cover
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image .no-image {
+	color:#7f7f7f;
+	font-size:14px
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	gap:8px
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info h3 {
+	font-size:18px;
+	font-weight:700;
+	color:#333;
+	margin:0
+}
+.search-result-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .trainer-details {
+	font-size:14px;
+	color:#666;
+	line-height:1.6;
+	margin:0
 }
 @media(max-width:768px) {
 	.booking-section {
@@ -906,7 +1096,7 @@ button.confirm {
 		font-size:18px
 	}
 	.book-container,.find-trainer-container,.search-result-container {
-		padding:20px 20px
+		padding:80px 20px 20px
 	}
 	.book-container .book-logo,.find-trainer-container .find-logo,.search-result-container .search-logo,.book-container .find-logo,.find-trainer-container .book-logo,.search-result-container .book-logo,.book-container .search-logo,.find-trainer-container .search-logo,.search-result-container .search-logo {
 		max-width:120px
@@ -941,13 +1131,24 @@ button.confirm {
 	.search-result-container .trainer-item .trainer-item-info .btn-book-trainer {
 		align-self: stretch
 	}
+	.main-container .sponsor-section {
+		padding:0 20px;
+		margin-top:40px
+	}
+	.main-container .sponsor-section .sponsor-logos {
+		gap:20px
+	}
+	.main-container .sponsor-section .sponsor-logos .sponsor-logo {
+		width:calc(50% - 10px);
+		max-width:200px
+	}
 }
 .unlogin-book-container {
 	display:flex;
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
 }
 .unlogin-book-container .unlogin-book-logo {
 	margin-bottom:40px;
@@ -960,7 +1161,7 @@ button.confirm {
 .unlogin-book-container .unlogin-book-title {
 	font-size:32px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin-bottom:15px;
 	text-align:center
 }
@@ -992,13 +1193,16 @@ button.confirm {
 }
 .unlogin-book-container .unlogin-book-form .form-group input[type="text"]:focus {
 	outline:none;
-	border-color:#659bd4
+	border-color:#099268
 }
 .unlogin-book-container .unlogin-book-button-box {
 	display:flex;
 	gap:20px;
 	justify-content:center;
-	margin-top:50px
+	margin-top:50px;
+	/* background:#ffffff; */
+	padding:30px;
+	border-radius:15px
 }
 .unlogin-book-container .unlogin-book-button-box .btn-large {
 	padding:15px 50px;
@@ -1009,7 +1213,20 @@ button.confirm {
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
+}
+.trainer-book-container .welcome-message h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #099268;
+    margin-bottom: 15px;
+	text-align: center;
+}
+.trainer-book-container .welcome-message p {
+    font-size: 20px;
+    color: #7f7f7f;
+	margin-bottom: 20px;
+	text-align: center;
 }
 .trainer-book-container .trainer-book-logo {
 	margin-bottom:40px;
@@ -1022,7 +1239,7 @@ button.confirm {
 .trainer-book-container .unlogin-book-waiting {
 	width:100%;
 	max-width:600px;
-	background:#fff;
+	background:#4caf50;
 	border:2px solid #4caf50;
 	border-radius:15px;
 	padding:30px;
@@ -1035,24 +1252,62 @@ button.confirm {
 	transform:translateY(-3px);
 	box-shadow:0 4px 16px rgba(76,175,80,0.3)
 }
+.trainer-book-container .member-book-waiting {
+	width:100%;
+	max-width:600px;
+	background:#099268;
+	border:2px solid #099268;
+	border-radius:15px;
+	padding:30px;
+	margin-bottom:40px;
+	text-align:center;
+	transition:all .3s ease;
+	box-shadow:0 2px 8px rgba(9,146,104,0.2)
+}
+.trainer-book-container .member-book-waiting:hover {
+	transform:translateY(-3px);
+	box-shadow:0 4px 16px rgba(9,146,104,0.3)
+}
+.trainer-book-container .member-book-waiting h2 {
+	font-size:22px;
+	font-weight:700;
+	color:#fff;
+	margin:0 0 15px 0
+}
+.trainer-book-container .member-book-waiting .waiting-count {
+	font-size:40px;
+	font-weight:700;
+	color:#fff;
+	margin:20px 0
+}
+.trainer-book-container .member-book-waiting .waiting-count strong {
+	font-size:50px;
+	color:#fff
+}
+.trainer-book-container .member-book-waiting .waiting-desc {
+	font-size:14px;
+	color:#fff;
+	margin:10px 0 0 0
+}
 .trainer-book-container .unlogin-book-waiting h2 {
 	font-size:22px;
 	font-weight:700;
-	color:#4caf50;
+	color:#fff;
 	margin:0 0 15px 0
 }
 .trainer-book-container .unlogin-book-waiting .waiting-count {
 	font-size:40px;
 	font-weight:700;
-	color:#4caf50;
+	color:#fff;
 	margin:20px 0
 }
 .trainer-book-container .unlogin-book-waiting .waiting-count strong {
-	font-size:50px
+	font-size:50px;
+	color:#fff
 }
 .trainer-book-container .unlogin-book-waiting .waiting-desc {
 	font-size:14px;
-	color:#7f7f7f;
+	color:#fff;
 	margin:10px 0 0 0
 }
 .trainer-book-container .trainer-book-button-box {
@@ -1060,14 +1315,17 @@ button.confirm {
 	flex-direction:column;
 	gap:20px;
 	width:100%;
-	max-width:500px
+	max-width:500px;
+	background:#ffffff;
+	padding:30px;
+	border-radius:15px
 }
 .unlogin-list-container {
 	display:flex;
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
 }
 .unlogin-list-container .unlogin-list-logo {
 	margin-bottom:40px;
@@ -1080,7 +1338,7 @@ button.confirm {
 .unlogin-list-container .unlogin-list-title {
 	font-size:32px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin-bottom:15px;
 	text-align:center
 }
@@ -1109,7 +1367,7 @@ button.confirm {
 	overflow:hidden
 }
 .unlogin-list-container .unlogin-table thead {
-	background:#659bd4;
+	background:#099268;
 	color:#fff
 }
 .unlogin-list-container .unlogin-table th {
@@ -1137,7 +1395,7 @@ button.confirm {
 	background:#4caf50;
 	color:#fff;
 	border:none;
-	border-radius:5px;
+	border-radius:10px;
 	cursor:pointer;
 	transition:all .3s ease
 }
@@ -1160,7 +1418,10 @@ button.confirm {
 .unlogin-list-container .unlogin-list-button-box {
 	display:flex;
 	gap:20px;
-	justify-content:center
+	justify-content:center;
+	background:#ffffff;
+	padding:30px;
+	border-radius:15px
 }
 .unlogin-list-container .unlogin-list-button-box .btn-large {
 	padding:15px 40px;
@@ -1168,7 +1429,7 @@ button.confirm {
 }
 @media(max-width:768px) {
 	.unlogin-book-container,.trainer-book-container,.unlogin-list-container {
-		padding:20px 20px
+		padding:80px 20px 20px
 	}
 	.unlogin-book-container .unlogin-book-logo,.trainer-book-container .trainer-book-logo,.unlogin-list-container .unlogin-list-logo {
 		max-width:120px
@@ -1195,7 +1456,7 @@ button.confirm {
 	flex-direction:column;
 	align-items:center;
 	width:100%;
-	padding:40px 50px
+	padding:80px 50px 40px
 }
 .trainer-book-list-container .trainer-book-list-logo {
 	margin-bottom:40px;
@@ -1208,24 +1469,25 @@ button.confirm {
 .trainer-book-list-container .trainer-book-list-title {
 	font-size:32px;
 	font-weight:700;
-	color:#659bd4;
+	color:#099268;
 	margin-bottom:30px;
 	text-align:center
 }
 .trainer-book-list-container .total-booking-count {
-	background:#659bd4;
-	padding:20px 40px;
+	/* background:#099268; */
+	border: 1px solid #099268;
+	padding:10px 40px;
 	border-radius:15px;
 	margin-bottom:50px;
 	text-align:center
 }
 .trainer-book-list-container .total-booking-count p {
 	font-size:22px;
-	color:#fff;
+	color:#099268;
 	margin:0
 }
 .trainer-book-list-container .total-booking-count p strong {
-	color:#fff;
+	color:#099268;
 	font-size:28px
 }
 .trainer-book-list-container .booking-section-wrapper {
@@ -1241,7 +1503,7 @@ button.confirm {
 	text-align:left
 }
 .trainer-book-list-container .booking-section-wrapper .section-title strong {
-	color:#659bd4
+	color:#099268
 }
 .trainer-book-list-container .booking-table-wrapper {
 	width:100%;
@@ -1257,7 +1519,7 @@ button.confirm {
 	overflow:hidden
 }
 .trainer-book-list-container .booking-table thead {
-	background:#659bd4;
+	background:#099268;
 	color:#fff
 }
 .trainer-book-list-container .booking-table th {
@@ -1278,6 +1540,35 @@ button.confirm {
 .trainer-book-list-container .booking-table tbody tr:last-child td {
 	border-bottom:none
 }
+.trainer-book-list-container .booking-table .btn-complete {
+	padding:6px 15px;
+	font-size:13px;
+	font-weight:700;
+	background:#4caf50;
+	color:#fff;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease;
+	margin-right:5px
+}
+.trainer-book-list-container .booking-table .btn-complete:hover {
+	background:#3d8b40
+}
+.trainer-book-list-container .booking-table .btn-delete {
+	padding:6px 15px;
+	font-size:13px;
+	font-weight:700;
+	background:#dc3545;
+	color:#fff;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.trainer-book-list-container .booking-table .btn-delete:hover {
+	background:#c82333
+}
 .trainer-book-list-container .no-data {
 	width:100%;
 	text-align:center;
@@ -1295,7 +1586,10 @@ button.confirm {
 	gap:20px;
 	justify-content:center;
 	width:100%;
-	max-width:600px
+	max-width:600px;
+	background:#ffffff;
+	padding:30px;
+	border-radius:15px
 }
 .trainer-book-list-container .trainer-book-list-button-box .btn-large {
 	padding:15px 40px;
@@ -1310,7 +1604,7 @@ button.confirm {
 }
 @media(max-width:768px) {
 	.trainer-book-list-container {
-		padding:20px 20px
+		padding:80px 20px 20px
 	}
 	.trainer-book-list-container .trainer-book-list-logo {
 		max-width:120px
@@ -1339,5 +1633,325 @@ button.confirm {
 	}
 	.trainer-book-list-container .trainer-book-list-button-box .btn-large {
 		width:100%
+	}
+}
+
+.trainer-detail-container {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:100%;
+	padding:80px 50px 40px
+}
+.trainer-detail-container .trainer-detail-logo {
+	margin-bottom:40px;
+	max-width:180px
+}
+.trainer-detail-container .trainer-detail-logo img {
+	width:100%;
+	height:auto
+}
+.trainer-detail-container .trainer-basic-info {
+	display:flex;
+	justify-content:space-between;
+	align-items:flex-start;
+	width:100%;
+	max-width:900px;
+	background:#ffffff;
+	padding:30px;
+	border-radius:15px;
+	margin-bottom:20px;
+	gap:30px
+}
+.trainer-detail-container .trainer-basic-info .trainer-name-info {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	gap:10px
+}
+.trainer-detail-container .trainer-basic-info .trainer-name-info h1 {
+	font-size:32px;
+	font-weight:700;
+	color:#000;
+	margin:0
+}
+.trainer-detail-container .trainer-basic-info .trainer-name-info .trainer-experience {
+	font-size:18px;
+	color:#666;
+	margin:0
+}
+.trainer-detail-container .trainer-basic-info .trainer-photo {
+	width:200px;
+	height:200px;
+	flex-shrink:0;
+	border-radius:10px;
+	overflow:hidden;
+	background:#f5f5f5;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+.trainer-detail-container .trainer-basic-info .trainer-photo img {
+	width:100%;
+	height:100%;
+	object-fit:cover
+}
+.trainer-detail-container .trainer-basic-info .trainer-photo .no-image {
+	color:#7f7f7f;
+	font-size:14px
+}
+.trainer-detail-container .trainer-detail-section {
+	width:100%;
+	max-width:900px;
+	background:#ffffff;
+	padding:30px;
+	border-radius:15px;
+	margin-bottom:20px
+}
+.trainer-detail-container .trainer-detail-section .section-title {
+	font-size:20px;
+	font-weight:700;
+	color:#000;
+	margin:0 0 15px 0;
+	padding-bottom:10px;
+	border-bottom:2px solid #e9ecef
+}
+.trainer-detail-container .trainer-detail-section .section-content {
+	font-size:16px;
+	color:#2a936a;
+	margin:0;
+	line-height:1.6
+}
+.trainer-detail-container .trainer-detail-section .license-list {
+	display:flex;
+	flex-direction:column;
+	gap:10px
+}
+.trainer-detail-container .trainer-detail-section .license-list .section-content {
+	padding:10px 0;
+	border-bottom:1px solid #f0f0f0
+}
+.trainer-detail-container .trainer-detail-section .license-list .section-content:last-child {
+	border-bottom:none
+}
+.trainer-detail-container .trainer-detail-button-box {
+	display:flex;
+	gap:20px;
+	width:100%;
+	max-width:900px;
+	background:#ffffff;
+	padding:30px;
+	border-radius:15px
+}
+.trainer-detail-container .trainer-detail-button-box .btn-book {
+	flex:1;
+	padding:20px 40px;
+	font-size:20px;
+	font-weight:700;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.trainer-detail-container .trainer-detail-button-box .btn-booking {
+	background:#2a936a;
+	color:#ffffff
+}
+.trainer-detail-container .trainer-detail-button-box .btn-booking:hover {
+	background:#237a56
+}
+.trainer-detail-container .trainer-detail-button-box .btn-cancel {
+	background:#e9ecef;
+	color:#000
+}
+.trainer-detail-container .trainer-detail-button-box .btn-cancel:hover {
+	background:#d3d5d7
+}
+@media(max-width:768px) {
+	.trainer-detail-container {
+		padding:80px 20px 20px
+	}
+	.trainer-detail-container .trainer-detail-logo {
+		max-width:120px
+	}
+	.trainer-detail-container .trainer-basic-info {
+		flex-direction:column;
+		align-items:center
+	}
+	.trainer-detail-container .trainer-basic-info .trainer-name-info {
+		text-align:center
+	}
+	.trainer-detail-container .trainer-basic-info .trainer-name-info h1 {
+		font-size:24px
+	}
+	.trainer-detail-container .trainer-basic-info .trainer-photo {
+		width:150px;
+		height:150px
+	}
+	.trainer-detail-container .trainer-detail-section {
+		padding:20px
+	}
+	.trainer-detail-container .trainer-detail-section .section-title {
+		font-size:18px
+	}
+	.trainer-detail-container .trainer-detail-section .section-content {
+		font-size:14px
+	}
+	.trainer-detail-container .trainer-detail-button-box {
+		flex-direction:column;
+		padding:20px
+	}
+	.trainer-detail-container .trainer-detail-button-box .btn-book {
+		width:100%
+	}
+}
+
+
+
+/* My Info Container */
+.my-info-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 80px 50px 40px;
+}
+
+.my-info-container .my-info-logo {
+	margin-bottom: 40px;
+	max-width: 180px;
+}
+
+.my-info-container .my-info-logo img {
+	width: 100%;
+	height: auto;
+}
+
+.my-info-container .my-info-title {
+	font-size: 32px;
+	font-weight: 700;
+	color: #099268;
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.my-info-container .info-box {
+	width: 100%;
+	max-width: 800px;
+	background: #ffffff;
+	padding: 40px;
+	border-radius: 15px;
+	border: 2px solid #ddd;
+	margin-bottom: 30px;
+}
+
+.my-info-container .info-box .info-item {
+	display: flex;
+	padding: 15px 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.my-info-container .info-box .info-item:last-child {
+	border-bottom: none;
+}
+
+.my-info-container .info-box .info-item .info-label {
+	flex: 0 0 200px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #000;
+}
+
+.my-info-container .info-box .info-item .info-value {
+	flex: 1;
+	font-size: 16px;
+	color: #7f7f7f;
+}
+
+.my-info-container .info-box .info-item .info-image {
+	flex: 1;
+}
+
+.my-info-container .info-box .info-item .info-image img {
+	max-width: 200px;
+	max-height: 200px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
+.my-info-button-box {
+	display: flex;
+	flex-direction: row !important;
+	gap: 15px;
+	width: 100%;
+	max-width: 500px;
+	margin: 0 auto;
+}
+
+.my-info-button-box .btn-large {
+	flex: 1;
+	padding: 15px 30px;
+	font-size: 18px;
+	font-weight: 700;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.my-info-button-box .btn-large.btn-primary {
+	background: #099268;
+	color: #fff;
+}
+
+.my-info-button-box .btn-large.btn-primary:hover {
+	background: #077a54;
+}
+
+.my-info-button-box .btn-large.btn-secondary {
+	background: #6c757d;
+	color: #fff;
+}
+
+.my-info-button-box .btn-large.btn-secondary:hover {
+	background: #5a6268;
+}
+
+.my-info-button-box .btn-large.btn-cancel {
+	background: #e9ecef;
+	color: #000;
+}
+
+.my-info-button-box .btn-large.btn-cancel:hover {
+	background: #d3d5d7;
+}
+
+.my-info-container .my-info-button-box {
+	display: flex;
+	gap: 15px;
+	width: 100%;
+	max-width: 500px;
+}
+
+@media(max-width:768px) {
+	.my-info-container {
+		padding: 80px 20px 40px;
+	}
+
+	.my-info-container .info-box {
+		padding: 20px;
+	}
+
+	.my-info-container .info-box .info-item {
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.my-info-container .info-box .info-item .info-label {
+		flex: none;
+	}
+
+	.my-info-container .my-info-button-box {
+		flex-direction: column;
 	}
 }

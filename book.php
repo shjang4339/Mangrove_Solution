@@ -15,7 +15,7 @@ $booking_info = $stmt->fetch(PDO::FETCH_ASSOC);
 $booking_count = $booking_info['booking_count'] ?? 0;
 
 // 예약된 트레이너 목록 조회
-$query = "SELECT t.no, t.name, t.image, t.major, t.region, t.greet, t.license, t.sublicense_1, t.sublicense_2, t.sublicense_3
+$query = "SELECT b.no as book_no, t.no, t.name, t.image, t.major, t.region, t.greet, t.license, t.sublicense_1, t.sublicense_2, t.sublicense_3
           FROM book b
           JOIN trainer t ON b.trainer_no = t.no
           WHERE b.member_no = ? AND b.is_meet = 0
@@ -60,7 +60,7 @@ function getRegionNames($pdo, $region_codes) {
         <h2>예약된 트레이너</h2>
         <div class="booked-trainers-list">
             <?php foreach ($booked_trainers as $trainer): ?>
-            <div class="booked-trainer-item">
+            <div class="booked-trainer-item" data-book-no="<?= $trainer['book_no'] ?>" data-trainer-name="<?= htmlspecialchars($trainer['name']) ?>">
                 <!-- 트레이너 이미지 -->
                 <div class="booked-trainer-image">
                     <?php if (!empty($trainer['image'])): ?>
@@ -72,38 +72,13 @@ function getRegionNames($pdo, $region_codes) {
 
                 <!-- 트레이너 정보 -->
                 <div class="booked-trainer-info">
-                    <h3><?= htmlspecialchars($trainer['name']) ?> 트레이너</h3>
-                    <div class="info-item">
-                        <span class="info-label">학위/전공:</span>
-                        <span class="info-value"><?= htmlspecialchars($trainer['major']) ?></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">대표자격증:</span>
-                        <span class="info-value"><?= htmlspecialchars($trainer['license']) ?></span>
-                    </div>
-                    <?php if (!empty($trainer['sublicense_1']) || !empty($trainer['sublicense_2']) || !empty($trainer['sublicense_3'])): ?>
-                    <div class="info-item">
-                        <span class="info-label">추가자격증:</span>
-                        <span class="info-value">
-                            <?php
-                            $sublicenses = array_filter([
-                                $trainer['sublicense_1'],
-                                $trainer['sublicense_2'],
-                                $trainer['sublicense_3']
-                            ]);
-                            echo htmlspecialchars(implode(', ', $sublicenses));
-                            ?>
-                        </span>
-                    </div>
-                    <?php endif; ?>
-                    <div class="info-item">
-                        <span class="info-label">전문분야:</span>
-                        <span class="info-value"><?= htmlspecialchars($trainer['greet']) ?></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">활동지역:</span>
-                        <span class="info-value"><?= htmlspecialchars(getRegionNames($pdo, $trainer['region'])) ?></span>
-                    </div>
+                    <h3><?= htmlspecialchars($trainer['name']) ?></h3>
+                    <p class="trainer-details">
+                        <?= htmlspecialchars($trainer['major']) ?> ·
+                        <?= htmlspecialchars($trainer['license']) ?> ·
+                        <?= htmlspecialchars($trainer['greet']) ?> ·
+                        <?= htmlspecialchars(getRegionNames($pdo, $trainer['region'])) ?>
+                    </p>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -114,7 +89,7 @@ function getRegionNames($pdo, $region_codes) {
     <!-- 버튼 박스 -->
     <div class="book-button-box">
         <button class="btn-book btn-gray" id="btn-nearby-trainer">집 근처 지역 트레이너 찾기</button>
-        <button class="btn-book btn-yellow" onclick="location.href='find_trainer.php'">트레이너 바로 찾기</button>
+        <button class="btn-book btn-green" onclick="location.href='find_trainer.php'">나에게 맞는 트레이너 바로 찾기</button>
         <button class="btn-book btn-primary" onclick="location.href='index.php'">처음으로</button>
     </div>
 </section>
@@ -141,6 +116,33 @@ function getRegionNames($pdo, $region_codes) {
                 alert('서버와의 통신에 실패했습니다.');
             }
         });
+    });
+
+    // 예약 취소 기능 - div 클릭 시
+    $('.booked-trainer-item').on('click', function() {
+        const bookNo = $(this).data('book-no');
+        const trainerName = $(this).data('trainer-name');
+
+        if (confirm(trainerName + '님 트레이너분께 요청한 상담을 취소하시겠습니까?')) {
+            $.ajax({
+                url: 'asset/controller/cancel_booking.php',
+                type: 'POST',
+                data: { book_no: bookNo },
+                dataType: 'json',
+                async: false,
+                success: function(response) {
+                    if (response.succ) {
+                        alert('예약이 취소되었습니다.');
+                        location.reload();
+                    } else {
+                        alert(response.message || '예약 취소 중 오류가 발생했습니다.');
+                    }
+                },
+                error: function() {
+                    alert('서버와의 통신에 실패했습니다.');
+                }
+            });
+        }
     });
 </script>
 </body>

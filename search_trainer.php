@@ -73,36 +73,43 @@ if ($search_type === 'nearby') {
     <p class="search-count">총 <strong><?= count($trainers) ?></strong>명의 트레이너를 찾았습니다.</p>
 
     <!-- 트레이너 리스트 -->
-    <div class="trainer-list">
-        <?php if (empty($trainers)): ?>
-        <div class="no-result">
-            <p>검색 조건에 맞는 트레이너를 찾지 못했습니다.</p>
-            <button class="btn-large btn-primary" onclick="location.href='find_trainer.php'">다시 검색하기</button>
-        </div>
-        <?php else: ?>
+    <?php if (!empty($trainers)): ?>
+    <div class="booked-trainers-container">
+        <h2>검색된 트레이너</h2>
+        <div class="booked-trainers-list">
             <?php foreach ($trainers as $trainer): ?>
-            <div class="trainer-item">
-                <div class="trainer-item-image">
+            <div class="booked-trainer-item" onclick="location.href='trainer_detail.php?no=<?= $trainer['no'] ?>'">
+                <!-- 트레이너 이미지 -->
+                <div class="booked-trainer-image">
                     <?php if (!empty($trainer['image'])): ?>
                         <img src="image/<?= htmlspecialchars($trainer['image']) ?>" alt="<?= htmlspecialchars($trainer['name']) ?> 트레이너">
                     <?php else: ?>
                         <div class="no-image">No Image</div>
                     <?php endif; ?>
                 </div>
-                <div class="trainer-item-info">
+
+                <!-- 트레이너 정보 -->
+                <div class="booked-trainer-info">
                     <h3><?= htmlspecialchars($trainer['name']) ?></h3>
-                    <p class="trainer-major"><strong>전문분야:</strong> <?= htmlspecialchars($trainer['major']) ?></p>
-                    <p class="trainer-greet"><?= htmlspecialchars($trainer['greet']) ?></p>
-                    <button class="btn-book-trainer" onclick="bookTrainer(<?= $trainer['no'] ?>, '<?= htmlspecialchars($trainer['name']) ?>')">예약하기</button>
+                    <p class="trainer-details">
+                        <?= htmlspecialchars($trainer['major']) ?> ·
+                        <?= htmlspecialchars($trainer['license']) ?> ·
+                        <?= htmlspecialchars($trainer['greet']) ?>
+                    </p>
                 </div>
             </div>
             <?php endforeach; ?>
-        <?php endif; ?>
+        </div>
     </div>
+    <?php else: ?>
+    <div class="no-result">
+        <p>검색 조건에 맞는 트레이너를 찾지 못했습니다.</p>
+    </div>
+    <?php endif; ?>
 
     <!-- 하단 버튼 -->
-    <div class="search-bottom-buttons">
-        <button class="btn-large btn-secondary" onclick="location.href='find_trainer.php'">다시 검색하기</button>
+    <div class="my-info-button-box">
+        <button class="btn-large btn-primary" onclick="location.href='find_trainer.php'">다시 검색하기</button>
         <button class="btn-large btn-cancel" onclick="location.href='book.php'">돌아가기</button>
     </div>
 </section>

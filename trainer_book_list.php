@@ -83,6 +83,7 @@ $total_count = $member_count + $unlogin_count;
                         <th>전화번호</th>
                         <th>거주지</th>
                         <th>질병/증상</th>
+                        <th>관리</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,6 +95,10 @@ $total_count = $member_count + $unlogin_count;
                         <td><?= htmlspecialchars($book['phone']) ?></td>
                         <td><?= htmlspecialchars(getRegionName($pdo, $book['region'])) ?></td>
                         <td><?= htmlspecialchars(getDiseaseNames($pdo, $book['disease_code'])) ?></td>
+                        <td>
+                            <button class="btn-complete" onclick="completeBooking('member', <?= $book['no'] ?>, '<?= htmlspecialchars($book['name']) ?>')">완료</button>
+                            <button class="btn-delete" onclick="deleteBooking('member', <?= $book['no'] ?>, '<?= htmlspecialchars($book['name']) ?>')">삭제</button>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -121,6 +126,7 @@ $total_count = $member_count + $unlogin_count;
                         <th>전화번호</th>
                         <th>거주지</th>
                         <th>질병/증상</th>
+                        <th>관리</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -132,6 +138,10 @@ $total_count = $member_count + $unlogin_count;
                         <td><?= htmlspecialchars($book['phone']) ?></td>
                         <td><?= htmlspecialchars(getRegionName($pdo, $book['region'])) ?></td>
                         <td><?= htmlspecialchars(getDiseaseNames($pdo, $book['disease_code'])) ?></td>
+                        <td>
+                            <button class="btn-complete" onclick="completeBooking('unlogin', <?= $book['no'] ?>, '<?= htmlspecialchars($book['name']) ?>')">완료</button>
+                            <button class="btn-delete" onclick="deleteBooking('unlogin', <?= $book['no'] ?>, '<?= htmlspecialchars($book['name']) ?>')">삭제</button>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -152,5 +162,63 @@ $total_count = $member_count + $unlogin_count;
 </section>
 
 <?php include 'footer.php'; ?>
+
+<script>
+    function completeBooking(type, bookingNo, name) {
+        if (!confirm(name + '님의 상담을 완료 처리하시겠습니까?')) {
+            return;
+        }
+
+        $.ajax({
+            url: 'asset/controller/complete_booking.php',
+            type: 'POST',
+            data: {
+                type: type,
+                booking_no: bookingNo
+            },
+            dataType: 'json',
+            async: false,
+            success: function(response) {
+                if (response.succ) {
+                    alert('상담이 완료 처리되었습니다.');
+                    location.reload();
+                } else {
+                    alert('완료 처리 실패: ' + response.message);
+                }
+            },
+            error: function() {
+                alert('서버와의 통신에 실패했습니다.');
+            }
+        });
+    }
+
+    function deleteBooking(type, bookingNo, name) {
+        if (!confirm(name + '님의 예약을 삭제하시겠습니까?')) {
+            return;
+        }
+
+        $.ajax({
+            url: 'asset/controller/delete_trainer_booking.php',
+            type: 'POST',
+            data: {
+                type: type,
+                booking_no: bookingNo
+            },
+            dataType: 'json',
+            async: false,
+            success: function(response) {
+                if (response.succ) {
+                    alert('예약이 삭제되었습니다.');
+                    location.reload();
+                } else {
+                    alert('삭제 실패: ' + response.message);
+                }
+            },
+            error: function() {
+                alert('서버와의 통신에 실패했습니다.');
+            }
+        });
+    }
+</script>
 </body>
 </html>

@@ -62,10 +62,22 @@
                     <span class="ntnll">생년월일</span>
                     <input id="birth" type="date" value=""/>
                 </label>
-                <label>
+                <div>
                     <span class="ntnll">이메일 주소</span>
-                    <input id="email" type="text" value=""/>
-                </label>
+                    <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+                        <input id="emailId" type="text" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px;"/>
+                        <span style="font-size:18px; color:#000;">@</span>
+                        <select id="emailDomain" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; background:#fff; cursor:pointer;">
+                            <option value="">선택하세요</option>
+                            <option value="naver.com">naver.com</option>
+                            <option value="nate.com">nate.com</option>
+                            <option value="gmail.com">gmail.com</option>
+                            <option value="kakao.com">kakao.com</option>
+                            <option value="direct">직접 입력</option>
+                        </select>
+                        <input id="emailDomainDirect" type="text" placeholder="도메인 입력" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; display:none;"/>
+                    </div>
+                </div>
                 <div>
                     <span>질환 / 장애 유무</span>
                     <div class="disease-box">
@@ -84,9 +96,9 @@
                     </div>
                 </div>
 
-                <div class="btn-box">
-                    <button class="confirm">가입하기</button>
-                    <button>가입취소</button>
+                <div class="my-info-button-box">
+                    <button class="btn-large btn-primary confirm">가입하기</button>
+                    <button class="btn-large btn-cancel" onclick="location.href='index.php'">가입취소</button>
                 </div>
             </div>
             
@@ -94,14 +106,27 @@
         </section>
         <?php include 'footer.php'; ?>
         <script>
-            $('.btn-box > .confirm').on('click', function() {
+            $(document).ready(function() {
+                // 도메인 선택 변경 이벤트
+                $('#emailDomain').on('change', function() {
+                    if ($(this).val() === 'direct') {
+                        $('#emailDomainDirect').show();
+                    } else {
+                        $('#emailDomainDirect').hide().val('');
+                    }
+                });
+            });
+
+            $('.confirm').on('click', function() {
                 let id = $('#id').val().trim();
                 let password = $('#password').val();
                 let password_check = $('#password_check').val();
                 let name = $('#name').val().trim();
                 let phone = $('#phone').val().trim();
                 let birth = $('#birth').val();
-                let email = $('#email').val().trim();
+                let emailId = $('#emailId').val().trim();
+                let emailDomain = $('#emailDomain').val();
+                let emailDomainDirect = $('#emailDomainDirect').val().trim();
 
                 // 필수 입력 검증
                 if (!id) {
@@ -155,11 +180,27 @@
                     return;
                 }
 
-                if (!email) {
-                    alert('이메일 주소를 입력해주세요.');
-                    $('#email').focus();
+                if (!emailId) {
+                    alert('이메일 아이디를 입력해주세요.');
+                    $('#emailId').focus();
                     return;
                 }
+
+                if (!emailDomain) {
+                    alert('이메일 도메인을 선택해주세요.');
+                    $('#emailDomain').focus();
+                    return;
+                }
+
+                if (emailDomain === 'direct' && !emailDomainDirect) {
+                    alert('이메일 도메인을 입력해주세요.');
+                    $('#emailDomainDirect').focus();
+                    return;
+                }
+
+                // 최종 이메일 조합
+                let finalDomain = emailDomain === 'direct' ? emailDomainDirect : emailDomain;
+                let email = emailId + '@' + finalDomain;
 
                 let disease_code = $('.disease_check:checked').map(function() {
                     return $(this).val();

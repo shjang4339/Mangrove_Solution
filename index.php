@@ -15,10 +15,13 @@
             </div>
 
             <!-- 타이틀 -->
-            <h1 class="main-title">방문 재활운동 서비스</h1>
+            <h1 class="main-title"><b>방문 재활운동</b> 서비스</h1>
 
             <!-- 서브 타이틀 -->
-            <p class="main-subtitle">장애 아동, 성인 장애인, 질환 및 희귀질환 전문 재활 운동 서비스 제공</p>
+            <p class="main-subtitle">
+                장애 아동, 성인 장애인, 질환 및 희귀질환자를<br>
+                위한 전문 재활 운동을 제공합니다.
+            </p>
 
             <!-- 상담 예약/관리 버튼 -->
             <div class="booking-section">
@@ -65,7 +68,7 @@
                 <div class="swiper-wrapper">
                     <?php foreach ($trainers as $trainer): ?>
                     <div class="swiper-slide">
-                        <div class="trainer-card">
+                        <div class="trainer-card" data-trainer-no="<?= $trainer['no'] ?>">
                             <div class="trainer-image">
                                 <?php if (!empty($trainer['image'])): ?>
                                     <img src="image/<?= htmlspecialchars($trainer['image']) ?>" alt="<?= htmlspecialchars($trainer['name']) ?> 트레이너">
@@ -88,15 +91,27 @@
 
             <!-- 후원사 섹션 -->
             <div class="sponsor-section">
-                <h3>후원사</h3>
+                <h3>장애운동재활 전문센터</h3>
                 <div class="sponsor-logos">
-                    <div class="sponsor-logo">
-                        <!-- 후원사 로고 1 -->
-                        <img src="asset/image/sponsor1.png" alt="후원사 1" onerror="this.style.display='none'">
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="asset/image/sponsor_1.svg" alt="칠드런스 드림 발달센터">
+                        </div>
+                        <div class="sponsor-info">
+                            <p class="sponsor-category">장애아동 전문</p>
+                            <h4 class="sponsor-name">칠드런스 드림</h4>
+                            <p class="sponsor-subtitle">발달센터</p>
+                        </div>
                     </div>
-                    <div class="sponsor-logo">
-                        <!-- 후원사 로고 2 -->
-                        <img src="asset/image/sponsor2.png" alt="후원사 2" onerror="this.style.display='none'">
+                    <div class="sponsor-item">
+                        <div class="sponsor-logo">
+                            <img src="asset/image/sponsor_2.svg" alt="Go Fit LAB">
+                        </div>
+                        <div class="sponsor-info">
+                            <p class="sponsor-category">성인장애 전문</p>
+                            <h4 class="sponsor-name">Go Fit</h4>
+                            <p class="sponsor-subtitle">LAB</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,6 +148,20 @@
                         spaceBetween: 30,
                     },
                 }
+            });
+
+            // 트레이너 카드 클릭 이벤트
+            $('.trainer-card').on('click', function() {
+                const trainerNo = $(this).data('trainer-no');
+                <?php if ($is_logged_in): ?>
+                    // 로그인 상태: 트레이너 상세 페이지로 이동
+                    location.href = 'trainer_detail.php?no=' + trainerNo;
+                <?php else: ?>
+                    // 비로그인 상태: 로그인 필요 안내 후 회원가입 페이지로 이동
+                    if (confirm('트레이너 정보를 확인하려면 로그인이 필요합니다.\n고객 회원가입 페이지로 이동하시겠습니까?')) {
+                        location.href = 'join_member.php';
+                    }
+                <?php endif; ?>
             });
         </script>
     </body>
