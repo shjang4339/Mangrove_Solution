@@ -88,6 +88,11 @@ function getDiseaseNames($pdo, $disease_codes) {
             <span class="info-label">질환/장애</span>
             <span class="info-value"><?= htmlspecialchars(getDiseaseNames($pdo, $member['disease_code'])) ?></span>
         </div>
+        
+        <!-- 회원탈퇴 버튼 -->
+        <div style="text-align:right; margin-top:20px;">
+            <button class="btn-large" style="background:#dc3545; color:#fff; padding:10px 20px; font-size:14px;" onclick="deleteMemberAccount()">회원탈퇴</button>
+        </div>
     </div>
 
     <!-- 버튼 박스 -->
@@ -95,8 +100,38 @@ function getDiseaseNames($pdo, $disease_codes) {
         <button class="btn-large btn-primary" onclick="location.href='edit_info_member.php'">수정하기</button>
         <button class="btn-large btn-cancel" onclick="history.back()">취소</button>
     </div>
+
 </section>
 
 <?php include 'footer.php'; ?>
+
+<script>
+    function deleteMemberAccount() {
+        if (!confirm('정말로 회원탈퇴를 하시겠습니까?\n탈퇴 시 모든 정보가 삭제되며 복구할 수 없습니다.')) {
+            return;
+        }
+
+        if (!confirm('탈퇴하시면 예약 내역 등 모든 데이터가 삭제됩니다.\n정말로 탈퇴하시겠습니까?')) {
+            return;
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: 'asset/controller/delete_member.php',
+            dataType: 'json',
+            success: function(res) {
+                if (res.succ) {
+                    alert('회원탈퇴가 완료되었습니다.');
+                    location.href = 'index.php';
+                } else {
+                    alert('회원탈퇴에 실패했습니다: ' + res.message);
+                }
+            },
+            error: function() {
+                alert('서버와의 통신에 실패했습니다.');
+            }
+        });
+    }
+</script>
 </body>
 </html>
