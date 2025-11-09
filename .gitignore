@@ -34,3 +34,4 @@ DB_BACKUP.sql
 
 # DB 정보
 dbconfig.php
+asset/db/dbconfig.php
