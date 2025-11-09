@@ -14,10 +14,10 @@ $member_book_stmt->execute(array($_SESSION['user_no']));
 $member_book_result = $member_book_stmt->fetch(PDO::FETCH_ASSOC);
 $member_book_count = $member_book_result['count'] ?? 0;
 
-// 비회원 예약 리스트 건수 조회 (trainer_no)
-$unlogin_book_query = "SELECT COUNT(*) as count FROM unlogin_book WHERE trainer_no";
+// 비회원 예약 리스트 건수 조회 (trainer_no가 할당되고 is_meet = 0인 것만)
+$unlogin_book_query = "SELECT COUNT(*) as count FROM unlogin_book WHERE trainer_no = ? AND is_meet = 0";
 $unlogin_book_stmt = $pdo->prepare($unlogin_book_query);
-$unlogin_book_stmt->execute();
+$unlogin_book_stmt->execute(array($_SESSION['user_no']));
 $unlogin_book_result = $unlogin_book_stmt->fetch(PDO::FETCH_ASSOC);
 $unlogin_book_count = $unlogin_book_result['count'] ?? 0;
 

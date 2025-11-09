@@ -40,10 +40,10 @@ $member_stmt->execute(array($_SESSION['user_no']));
 $member_books = $member_stmt->fetchAll(PDO::FETCH_ASSOC);
 $member_count = count($member_books);
 
-// 비회원 상담 예정 리스트 조회 (trainer_no가 할당된 것만)
+// 비회원 상담 예정 리스트 조회 (trainer_no가 할당되고 is_meet = 0인 것만)
 $unlogin_query = "SELECT no, name, phone, region, disease_code, insert_date
                   FROM unlogin_book
-                  WHERE trainer_no = ?
+                  WHERE trainer_no = ? AND is_meet = 0
                   ORDER BY insert_date DESC";
 $unlogin_stmt = $pdo->prepare($unlogin_query);
 $unlogin_stmt->execute(array($_SESSION['user_no']));
@@ -52,6 +52,30 @@ $unlogin_count = count($unlogin_books);
 
 // 총 상담 예정 수
 $total_count = $member_count + $unlogin_count;
+
+// 회원 상담 완료 리스트 조회 (is_meet = 1)
+$member_complete_query = "SELECT b.no, b.book_date, m.name, m.phone, m.region, m.disease_code
+                          FROM book b
+                          JOIN member m ON b.member_no = m.no
+                          WHERE b.trainer_no = ? AND b.is_meet = 1
+                          ORDER BY b.book_date DESC";
+$member_complete_stmt = $pdo->prepare($member_complete_query);
+$member_complete_stmt->execute(array($_SESSION['user_no']));
+$member_complete_books = $member_complete_stmt->fetchAll(PDO::FETCH_ASSOC);
+$member_complete_count = count($member_complete_books);
+
+// 비회원 상담 완료 리스트 조회 (is_meet = 1)
+$unlogin_complete_query = "SELECT no, name, phone, region, disease_code, insert_date
+                           FROM unlogin_book
+                           WHERE trainer_no = ? AND is_meet = 1
+                           ORDER BY insert_date DESC";
+$unlogin_complete_stmt = $pdo->prepare($unlogin_complete_query);
+$unlogin_complete_stmt->execute(array($_SESSION['user_no']));
+$unlogin_complete_books = $unlogin_complete_stmt->fetchAll(PDO::FETCH_ASSOC);
+$unlogin_complete_count = count($unlogin_complete_books);
+
+// 총 상담 완료 수
+$total_complete_count = $member_complete_count + $unlogin_complete_count;
 ?>
 
 <section class="trainer-book-list-container">
@@ -150,6 +174,95 @@ $total_count = $member_count + $unlogin_count;
         <?php else: ?>
         <div class="no-data">
             <p>비회원 상담 예정이 없습니다.</p>
+        </div>
+        <?php endif; ?>
+    </div>
+
+    <!-- 총 상담 완료 수 -->
+    <div class="total-booking-count" style="margin-top:40px;">
+        <p>총 상담 완료 수: <strong><?= $total_complete_count ?></strong> 건</p>
+    </div>
+
+    <!-- 회원 상담 완료 리스트 -->
+    <div class="booking-section-wrapper">
+        <h2 class="section-title">회원 상담 완료 리스트 (<strong><?= $member_complete_count ?></strong>건)</h2>
+
+        <?php if (!empty($member_complete_books)): ?>
+        <div class="booking-table-wrapper">
+            <table class="booking-table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>예약일시</th>
+                        <th>이름</th>
+                        <th>전화번호</th>
+                        <th>거주지</th>
+                        <th>질병/증상</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($member_complete_books as $index => $book): ?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= htmlspecialchars($book['book_date']) ?></td>
+                        <td><?= htmlspecialchars($book['name']) ?></td>
+                        <td><?= htmlspecialchars($book['phone']) ?></td>
+                        <td><?= htmlspecialchars(getRegionName($pdo, $book['region'])) ?></td>
+                        <td><?= htmlspecialchars(getDiseaseNames($pdo, $book['disease_code'])) ?></td>
+                        <td>
+                            <button class="btn-delete" onclick="deleteBooking('member', <?= $book['no'] ?>, '<?= htmlspecialchars($book['name']) ?>')">삭제</button>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php else: ?>
+        <div class="no-data">
+            <p>회원 상담 완료 내역이 없습니다.</p>
+        </div>
+        <?php endif; ?>
+    </div>
+
+    <!-- 비회원 상담 완료 리스트 -->
+    <div class="booking-section-wrapper">
+        <h2 class="section-title">비회원 상담 완료 리스트 (<strong><?= $unlogin_complete_count ?></strong>건)</h2>
+
+        <?php if (!empty($unlogin_complete_books)): ?>
+        <div class="booking-table-wrapper">
+            <table class="booking-table">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>신청일시</th>
+                        <th>이름</th>
+                        <th>전화번호</th>
+                        <th>거주지</th>
+                        <th>질병/증상</th>
+                        <th>관리</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($unlogin_complete_books as $index => $book): ?>
+                    <tr>
+                        <td><?= $index + 1 ?></td>
+                        <td><?= htmlspecialchars($book['insert_date']) ?></td>
+                        <td><?= htmlspecialchars($book['name']) ?></td>
+                        <td><?= htmlspecialchars($book['phone']) ?></td>
+                        <td><?= htmlspecialchars(getRegionName($pdo, $book['region'])) ?></td>
+                        <td><?= htmlspecialchars(getDiseaseNames($pdo, $book['disease_code'])) ?></td>
+                        <td>
+                            <button class="btn-delete" onclick="deleteBooking('unlogin', <?= $book['no'] ?>, '<?= htmlspecialchars($book['name']) ?>')">삭제</button>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php else: ?>
+        <div class="no-data">
+            <p>비회원 상담 완료 내역이 없습니다.</p>
         </div>
         <?php endif; ?>
     </div>
