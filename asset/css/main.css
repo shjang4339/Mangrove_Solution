@@ -1995,6 +1995,9 @@ button.confirm {
     	align-items: center;
     	flex-direction: column-reverse;
 	}
+	.title-wrap .title h1 {
+		text-align: center;
+	}
 	.title-wrap .title p {
 		text-align: center;
 		font-size: 15px;
