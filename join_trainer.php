@@ -43,7 +43,7 @@
                 </label>
                 <div>
                     <span class="ntnll">이메일 주소</span>
-                    <div style="display:flex; align-items:center; gap:10px; margin-top:10px;    flex-wrap: wrap;">
+                    <div style="display:flex; align-items:center; gap:10px; margin-top:10px; flex-wrap: wrap;">
                         <input id="emailId" type="text" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; min-width: 150px;"/>
 
                         <span style="font-size:18px; color:#000;">@</span>
