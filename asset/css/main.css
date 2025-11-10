@@ -2022,5 +2022,12 @@ button.confirm {
 	.disease-box label {
         width: 48%;
 		font-size: 16px;
-}
+	}
+	.find-trainer-container .find-form .find-button-box .btn-large {
+    	word-break: keep-all;
+	}
+	.find-trainer-container .find-form .find-button-box .btn-large.btn-primary {
+		background: #099268;
+		color: #fff;
+	}
 }
