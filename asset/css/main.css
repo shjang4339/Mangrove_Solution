@@ -56,7 +56,8 @@ img {
 	width:100%
 }
 img.small-logo {
-	max-width:150px
+	max-width:150px;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 input[type=text],input[type=date],input[type=password] {
 	padding:10px;
@@ -210,7 +211,8 @@ button.confirm {
 }
 .main-container .main-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .main-container .main-title {
 	font-size:36px;
@@ -480,7 +482,8 @@ button.confirm {
 }
 .login-container .login-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .login-container .login-form {
 	display:flex;
@@ -671,7 +674,8 @@ button.confirm {
 }
 .book-container .book-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .book-container .welcome-message {
 	text-align:center;
@@ -823,7 +827,8 @@ button.confirm {
 }
 .book-container .book-button-box .btn-book.btn-primary {
 	background:#099268;
-	color:#fff
+	color:#fff;
+	word-break: keep-all;
 }
 .book-container .book-button-box .btn-book.btn-primary:hover {
 	background:#4d7ba8
@@ -841,7 +846,8 @@ button.confirm {
 }
 .find-trainer-container .find-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .find-trainer-container .find-title {
 	font-size:32px;
@@ -895,7 +901,8 @@ button.confirm {
 }
 .search-result-container .search-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .search-result-container .search-title {
 	font-size:32px;
@@ -1168,7 +1175,8 @@ button.confirm {
 }
 .unlogin-book-container .unlogin-book-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .unlogin-book-container .unlogin-book-title {
 	font-size:32px;
@@ -1246,7 +1254,8 @@ button.confirm {
 }
 .trainer-book-container .trainer-book-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .trainer-book-container .unlogin-book-waiting {
 	width:100%;
@@ -1345,7 +1354,8 @@ button.confirm {
 }
 .unlogin-list-container .unlogin-list-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .unlogin-list-container .unlogin-list-title {
 	font-size:32px;
@@ -1439,6 +1449,11 @@ button.confirm {
 	padding:15px 40px;
 	font-size:18px
 }
+.btn-tertiary {
+	background:#4caf50;
+	color:#fff;
+    word-break: keep-all;
+}
 @media(max-width:768px) {
 	.unlogin-book-container,.trainer-book-container,.unlogin-list-container {
 		padding:80px 20px 20px
@@ -1476,7 +1491,8 @@ button.confirm {
 }
 .trainer-book-list-container .trainer-book-list-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .trainer-book-list-container .trainer-book-list-title {
 	font-size:32px;
@@ -1661,7 +1677,8 @@ button.confirm {
 }
 .trainer-detail-container .trainer-detail-logo img {
 	width:100%;
-	height:auto
+	height:auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 .trainer-detail-container .trainer-basic-info {
 	display:flex;
@@ -1837,6 +1854,7 @@ button.confirm {
 .my-info-container .my-info-logo img {
 	width: 100%;
 	height: auto;
+	filter: drop-shadow(2px 3px 3px #000000a3);
 }
 
 .my-info-container .my-info-title {
