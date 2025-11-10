@@ -175,9 +175,9 @@ button.confirm {
 .site-header .header-content .user-info .btn-myinfo {
 	padding:5px 20px;
 	font-size:16px;
-	background:#099268;
-	color:#fff;
-	border:none;
+	background: #ffffff;
+	color:#099268;
+	border:1px solid #099268;
 	border-radius:10px;
 	cursor:pointer;
 	margin-right:10px
@@ -1965,5 +1965,30 @@ button.confirm {
 
 	.my-info-container .my-info-button-box {
 		flex-direction: column;
+	}
+}
+
+
+
+@media(max-width:768px) {
+	.site-header .header-content {
+		padding: 15px 10px;
+	}
+	.site-header .header-content .btn-home img {
+		width: 20px;
+		height: 20px;
+	}
+	.site-header .header-content .user-info .user-name {
+		font-size: 12px;
+	}
+	.site-header .header-content .user-info .user-type {
+		font-size: 12px;
+	}
+	.site-header .header-content .user-info .btn-myinfo {
+		font-size: 12px;
+    	word-break: keep-all;
+	}
+	.site-header .header-content .user-info .btn-logout {
+		font-size: 12px;
 	}
 }
