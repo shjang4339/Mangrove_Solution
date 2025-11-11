@@ -53,6 +53,10 @@
                     <div class="box-buttons">
                         <button class="btn-box btn-primary" onclick="location.href='join_trainer.php'">회원가입</button>
                         <button class="btn-box btn-secondary" onclick="location.href='login.php?type=trainer'">로그인</button>
+                        <p>
+                            * 트레이너 최종 회원 가입은<br>
+                            경력 및 학위 등에 대한 진위 검토 후, 최종승인 됨.
+                        </p>
                     </div>
                 </div>
             </div>
