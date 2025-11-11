@@ -50,6 +50,7 @@ $unlogin_books = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- 타이틀 -->
     <h1 class="unlogin-list-title">비회원 상담 대기 리스트</h1>
     <p class="unlogin-list-subtitle">총 <strong><?= count($unlogin_books) ?></strong>건의 예약이 대기 중입니다</p>
+    <p class="notice">※ 비회원 전화 상담 전, 매니저 및 책임자에게 꼭 확인 후 상담 진행해 주세요.</p>
 
     <!-- 테이블 -->
     <?php if (!empty($unlogin_books)): ?>
