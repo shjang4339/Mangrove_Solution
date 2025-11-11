@@ -59,11 +59,11 @@ $selected_diseases = !empty($member['disease_code']) ? explode(',', $member['dis
         </div>
         <label>
             <span class="ntnll">비밀번호</span>
-            <input id="password" type="password" value="" placeholder="변경할 비밀번호를 입력하세요"/>
+            <input id="password" type="password" value="" placeholder="변경할 비밀번호를 입력하세요" minlength="4" maxlength="20"/>
         </label>
         <label>
             <span class="ntnll">비밀번호 확인</span>
-            <input id="password_check" type="password" value="" placeholder="비밀번호를 다시 입력하세요"/>
+            <input id="password_check" type="password" value="" placeholder="비밀번호를 다시 입력하세요" minlength="4" maxlength="20"/>
         </label>
         <div>
             <span class="ntnll">거주지</span>
@@ -159,6 +159,13 @@ $selected_diseases = !empty($member['disease_code']) ? explode(',', $member['dis
         // 비밀번호 필수 확인
         if (!password) {
             alert('비밀번호를 입력해주세요.');
+            $('#password').focus();
+            return;
+        }
+
+        // 비밀번호 길이 검증 (4~20자)
+        if (password.length < 4 || password.length > 20) {
+            alert('비밀번호는 4자리 이상 20자리 미만으로 입력해주세요.');
             $('#password').focus();
             return;
         }

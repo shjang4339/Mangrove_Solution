@@ -33,11 +33,11 @@
                 </label>
                 <label>
                     <span class="ntnll">비밀번호</span>
-                    <input id="password" type="password" value=""/>
+                    <input id="password" type="password" value="" minlength="4" maxlength="20"/>
                 </label>
                 <label>
                     <span class="ntnll">비밀번호 확인</span>
-                    <input id="password_check" type="password" value=""/>
+                    <input id="password_check" type="password" value="" minlength="4" maxlength="20"/>
                 </label>
                 <label>
                     <span class="ntnll">이름</span>
@@ -266,6 +266,13 @@
 
                 if (!password) {
                     alert('비밀번호를 입력해주세요.');
+                    $('#password').focus();
+                    return;
+                }
+
+                // 비밀번호 길이 검증 (4~20자)
+                if (password.length < 4 || password.length > 20) {
+                    alert('비밀번호는 4자리 이상 20자리 미만으로 입력해주세요.');
                     $('#password').focus();
                     return;
                 }
