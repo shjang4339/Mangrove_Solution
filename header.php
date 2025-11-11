@@ -10,6 +10,7 @@ require "./asset/db/dbconnect.php";
         <meta property="og:locale" content="ko_KR" />
         <meta property="og:site_name" content="Mangrove Solution" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content"http://mangrovesolution.co.kr/asset/image/logo.svg" />
         <meta property="og:title" content="Mangrove Solution" />
         <meta property="og:description" content="We are Mangrove" />
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
