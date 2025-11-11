@@ -9,6 +9,7 @@
     $phone = $_POST['phone'] ?? '';
     $email = $_POST['email'] ?? '';
     $major = $_POST['major'] ?? '';
+    $teachday = $_POST['teachday'] ?? '';
     $image = $_POST['image'] ?? '';
     $license = $_POST['license'] ?? '';
     $sublicense_1 = $_POST['sublicense_1'] ?? '';
@@ -20,17 +21,17 @@
 
     // 서버측 검증
     if (empty($id) || empty($password) || empty($name) || empty($phone) ||
-        empty($email) || empty($major) || empty($license) || empty($region) || empty($greet)) {
+        empty($email) || empty($major) || empty($teachday) || empty($license) || empty($region) || empty($greet)) {
         $response = array('succ' => false, 'message' => '필수 입력값이 누락되었습니다.');
         echo json_encode($response);
         exit;
     }
 
     try {
-        $sql = "INSERT INTO trainer (id, password, name, phone, email, major, image, license, sublicense_1, sublicense_2, sublicense_3, region, greet, disease_code)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO trainer (id, password, name, phone, email, major, teachday, image, license, sublicense_1, sublicense_2, sublicense_3, region, greet, disease_code)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(array($id, $password, $name, $phone, $email, $major, $image, $license, $sublicense_1, $sublicense_2, $sublicense_3, $region, $greet, $disease_code));
+        $stmt->execute(array($id, $password, $name, $phone, $email, $major, $teachday, $image, $license, $sublicense_1, $sublicense_2, $sublicense_3, $region, $greet, $disease_code));
 
         if($stmt->rowCount() > 0) {
             $response = array('succ' => true, 'message' => '트레이너 회원가입 성공');

@@ -85,6 +85,13 @@ $selected_diseases = !empty($trainer['disease_code']) ? explode(',', $trainer['d
             <input id="major" type="text" value="<?= htmlspecialchars($trainer['major']) ?>"/>
         </label>
         <label>
+            <span class="ntnll">경력</span>
+            <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+                <input id="teachday" type="number" min="0" value="<?= htmlspecialchars($trainer['teachday']) ?>" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; max-width: 200px;"/>
+                <span style="font-size:16px; color:#000;">년</span>
+            </div>
+        </label>
+        <label>
             <span class="ntnll">대표자격증</span>
             <input id="license" type="text" value="<?= htmlspecialchars($trainer['license']) ?>"/>
         </label>
@@ -185,6 +192,7 @@ $selected_diseases = !empty($trainer['disease_code']) ? explode(',', $trainer['d
         const emailDomain = $('#emailDomain').val();
         const emailDomainDirect = $('#emailDomainDirect').val();
         const major = $('#major').val();
+        const teachday = $('#teachday').val();
         const license = $('#license').val();
         const sublicense1 = $('#sublicense1').val();
         const sublicense2 = $('#sublicense2').val();
@@ -236,6 +244,13 @@ $selected_diseases = !empty($trainer['disease_code']) ? explode(',', $trainer['d
         if (!major) {
             alert('학위 / 전공명을 입력해주세요.');
             $('#major').focus();
+            return;
+        }
+
+        // 경력 필수 확인
+        if (!teachday) {
+            alert('경력을 입력해주세요.');
+            $('#teachday').focus();
             return;
         }
 
@@ -327,6 +342,7 @@ $selected_diseases = !empty($trainer['disease_code']) ? explode(',', $trainer['d
                 password: password,
                 email: email,
                 major: major,
+                teachday: teachday,
                 license: license,
                 sublicense_1: sublicense1,
                 sublicense_2: sublicense2,

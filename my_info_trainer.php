@@ -80,6 +80,11 @@ function getDiseaseNames($pdo, $disease_codes) {
         </div>
 
         <div class="info-item">
+            <span class="info-label">경력</span>
+            <span class="info-value"><?= htmlspecialchars($trainer['teachday']) ?> 년</span>
+        </div>
+
+        <div class="info-item">
             <span class="info-label">대표 자격증</span>
             <span class="info-value"><?= htmlspecialchars($trainer['license']) ?></span>
         </div>

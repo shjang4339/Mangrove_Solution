@@ -25,7 +25,13 @@
                 </div>
                 <label>
                     <span class="ntnll">아이디</span>
-                    <input id="id" type="text" value=""/>
+                    <div style="display:flex; align-items:center; gap:10px; margin-top:10px;">
+                        <input id="id" type="text" value="" style="flex:1; padding:15px 20px; font-size:16px;="/>
+                        <button type="button" id="checkIdBtn" style="padding:15px 20px; font-size:14px; background:#099268; color:#fff; border:none; border-radius:10px; cursor:pointer; white-space:nowrap;">중복확인</button>
+                    </div>
+                </label>
+                <label style="display: flex; flex-direction: row; justify-content: flex-end;">
+                    <span id="idCheckMessage" style="display:block; width: 100%; margin-top:5px; font-size:14px; text-align: right;"></span>
                 </label>
                 <label>
                     <span class="ntnll">비밀번호</span>
@@ -65,11 +71,11 @@
                 <div>
                     <span class="ntnll">이메일 주소</span>
                     <div style="display:flex; align-items:center; gap:10px; margin-top:10px; flex-wrap: wrap;">
-                        <input id="emailId" type="text" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; min-width: 150px;"/>
+                        <input id="emailId" type="text" style="flex:1; padding:15px 20px; font-size:16px; min-width: 150px;"/>
 
                         <span style="font-size:18px; color:#000;">@</span>
 
-                        <select id="emailDomain" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; background:#fff; cursor:pointer;">
+                        <select id="emailDomain" style="flex:1; padding:15px 20px; font-size:16px; border-radius:10px; background:#fff; cursor:pointer;">
                             <option value="">선택하세요</option>
                             <option value="naver.com">naver.com</option>
                             <option value="nate.com">nate.com</option>
@@ -77,7 +83,7 @@
                             <option value="kakao.com">kakao.com</option>
                             <option value="direct">직접 입력</option>
                         </select>
-                        <input id="emailDomainDirect" type="text" placeholder="도메인 입력" style="flex:1; padding:15px 20px; font-size:16px; border:1px solid #ddd; border-radius:10px; display:none;"/>
+                        <input id="emailDomainDirect" type="text" placeholder="도메인 입력" style="flex:1; padding:15px 20px; font-size:16px; display:none;"/>
                     </div>
                 </div>
                 <div>
@@ -108,6 +114,9 @@
         </section>
         <?php include 'footer.php'; ?>
         <script>
+            let isIdChecked = false; // 아이디 중복확인 여부
+            let checkedId = ''; // 중복확인한 아이디
+
             $(document).ready(function() {
                 // 도메인 선택 변경 이벤트
                 $('#emailDomain').on('change', function() {
@@ -116,6 +125,47 @@
                     } else {
                         $('#emailDomainDirect').hide().val('');
                     }
+                });
+
+                // 아이디 입력 시 중복확인 상태 초기화
+                $('#id').on('input', function() {
+                    if ($(this).val().trim() !== checkedId) {
+                        isIdChecked = false;
+                        $('#idCheckMessage').text('').css('color', '');
+                    }
+                });
+
+                // 중복확인 버튼 클릭
+                $('#checkIdBtn').on('click', function() {
+                    let id = $('#id').val().trim();
+
+                    if (!id) {
+                        alert('아이디를 입력해주세요.');
+                        $('#id').focus();
+                        return;
+                    }
+
+                    // AJAX 중복확인 요청
+                    $.ajax({
+                        url: 'asset/controller/check_id_duplicate.php',
+                        type: 'POST',
+                        data: { id: id },
+                        dataType: 'json',
+                        success: function(res) {
+                            if (res.succ) {
+                                isIdChecked = true;
+                                checkedId = id;
+                                $('#idCheckMessage').text(res.message).css('color', '#099268');
+                            } else {
+                                isIdChecked = false;
+                                checkedId = '';
+                                $('#idCheckMessage').text(res.message).css('color', '#dc3545');
+                            }
+                        },
+                        error: function() {
+                            alert('중복확인 중 오류가 발생했습니다.');
+                        }
+                    });
                 });
             });
 
@@ -133,6 +183,13 @@
                 // 필수 입력 검증
                 if (!id) {
                     alert('아이디를 입력해주세요.');
+                    $('#id').focus();
+                    return;
+                }
+
+                // 아이디 중복확인 검증
+                if (!isIdChecked || id !== checkedId) {
+                    alert('아이디 중복확인을 해주세요.');
                     $('#id').focus();
                     return;
                 }

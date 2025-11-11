@@ -10,8 +10,8 @@ if (!isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'trainer') {
 
 // 필수 파라미터 확인
 if (!isset($_POST['password']) || !isset($_POST['email']) || !isset($_POST['major']) ||
-    !isset($_POST['license']) || !isset($_POST['region']) || !isset($_POST['disease_code']) ||
-    !isset($_POST['greet'])) {
+    !isset($_POST['teachday']) || !isset($_POST['license']) || !isset($_POST['region']) ||
+    !isset($_POST['disease_code']) || !isset($_POST['greet'])) {
     echo json_encode(['succ' => false, 'message' => '필수 파라미터가 누락되었습니다.']);
     exit;
 }
@@ -20,6 +20,7 @@ $trainer_no = $_SESSION['user_no'];
 $password = $_POST['password'];
 $email = $_POST['email'];
 $major = $_POST['major'];
+$teachday = $_POST['teachday'];
 $license = $_POST['license'];
 $sublicense_1 = $_POST['sublicense_1'] ?? '';
 $sublicense_2 = $_POST['sublicense_2'] ?? '';
@@ -37,19 +38,19 @@ try {
     // 이미지가 변경되지 않은 경우 기존 이미지 유지
     if ($image_changed === '1' && !empty($image)) {
         // 이미지 포함하여 업데이트
-        $query = "UPDATE trainer SET password = ?, email = ?, major = ?, license = ?,
+        $query = "UPDATE trainer SET password = ?, email = ?, major = ?, teachday = ?, license = ?,
                   sublicense_1 = ?, sublicense_2 = ?, sublicense_3 = ?, image = ?,
                   region = ?, disease_code = ?, greet = ? WHERE no = ?";
         $stmt = $pdo->prepare($query);
-        $stmt->execute(array($password, $email, $major, $license, $sublicense_1, $sublicense_2,
+        $stmt->execute(array($password, $email, $major, $teachday, $license, $sublicense_1, $sublicense_2,
                              $sublicense_3, $image, $region, $disease_code, $greet, $trainer_no));
     } else {
         // 이미지 제외하고 업데이트
-        $query = "UPDATE trainer SET password = ?, email = ?, major = ?, license = ?,
+        $query = "UPDATE trainer SET password = ?, email = ?, major = ?, teachday = ?, license = ?,
                   sublicense_1 = ?, sublicense_2 = ?, sublicense_3 = ?,
                   region = ?, disease_code = ?, greet = ? WHERE no = ?";
         $stmt = $pdo->prepare($query);
-        $stmt->execute(array($password, $email, $major, $license, $sublicense_1, $sublicense_2,
+        $stmt->execute(array($password, $email, $major, $teachday, $license, $sublicense_1, $sublicense_2,
                              $sublicense_3, $region, $disease_code, $greet, $trainer_no));
     }
 
