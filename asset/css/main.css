@@ -2061,6 +2061,20 @@ button.confirm {
 	.btn-view-detail {
 		padding: 12px 20px !important;
 	}
+	
+	.unlogin-list-container .notice {
+		margin-bottom: 14px;
+		text-align: center;
+	}
+	.unlogin-list-container .unlogin-table th,
+	.unlogin-list-container .unlogin-table td {
+		word-break: keep-all;
+		font-size: 11px;
+	}
+	.unlogin-list-container .unlogin-table .btn-approve {
+		padding: 6px 8px;
+		font-size: 11px;
+	}
 }
 
 /* 전역 input 스타일 */

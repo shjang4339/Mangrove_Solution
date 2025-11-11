@@ -31,6 +31,26 @@ function getDiseaseNames($pdo, $disease_codes) {
     return implode(', ', $diseases);
 }
 
+// 전화번호 포맷팅 함수
+function formatPhoneNumber($phone) {
+    // 숫자만 추출
+    $phone = preg_replace('/[^0-9]/', '', $phone);
+
+    // 전화번호 길이에 따라 포맷팅
+    $length = strlen($phone);
+
+    if ($length == 11) {
+        // 11자리: 010-1234-5678
+        return substr($phone, 0, 3) . '-' . substr($phone, 3, 4) . '-' . substr($phone, 7, 4);
+    } elseif ($length == 10) {
+        // 10자리: 010-123-4567
+        return substr($phone, 0, 3) . '-' . substr($phone, 3, 3) . '-' . substr($phone, 6, 4);
+    } else {
+        // 그 외: 원본 반환
+        return $phone;
+    }
+}
+
 // 비회원 예약 리스트 조회 (trainer_no가 NULL인 대기 중인 예약만)
 $query = "SELECT no, name, phone, region, disease_code, insert_date
           FROM unlogin_book
@@ -50,7 +70,7 @@ $unlogin_books = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- 타이틀 -->
     <h1 class="unlogin-list-title">비회원 상담 대기 리스트</h1>
     <p class="unlogin-list-subtitle">총 <strong><?= count($unlogin_books) ?></strong>건의 예약이 대기 중입니다</p>
-    <p class="notice">※ 비회원 전화 상담 전, 매니저 및 책임자에게 꼭 확인 후 상담 진행해 주세요.</p>
+    <p class="notice">※ 비회원 전화 상담 전, <br class="mo">매니저 및 책임자에게 꼭 확인 후 <br class="mo">상담 진행해 주세요.</p>
 
     <!-- 테이블 -->
     <?php if (!empty($unlogin_books)): ?>
@@ -72,7 +92,7 @@ $unlogin_books = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <td><?= $index + 1 ?></td>
                     <td><?= htmlspecialchars($book['name']) ?></td>
-                    <td><?= htmlspecialchars($book['phone']) ?></td>
+                    <td><?= htmlspecialchars(formatPhoneNumber($book['phone'])) ?></td>
                     <td><?= htmlspecialchars(getRegionNames($pdo, $book['region'])) ?></td>
                     <td><?= htmlspecialchars(getDiseaseNames($pdo, $book['disease_code'])) ?></td>
                     <td><?= htmlspecialchars($book['insert_date']) ?></td>
