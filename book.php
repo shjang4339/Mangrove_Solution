@@ -88,6 +88,7 @@ function getRegionNames($pdo, $region_codes) {
 
     <!-- 버튼 박스 -->
     <div class="book-button-box">
+        <button class="btn-book btn-secondary" onclick="location.href='all_trainers.php'">모든 트레이너 리스트</button>
         <button class="btn-book btn-primary" id="btn-nearby-trainer">집 근처 지역 트레이너 찾기</button>
         <button class="btn-book btn-tertiary" onclick="location.href='find_trainer.php'">나에게 맞는 트레이너 바로 찾기</button>
         <button class="btn-book btn-gray" onclick="location.href='index.php'">처음으로</button>
