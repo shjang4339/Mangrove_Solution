@@ -290,10 +290,10 @@ button.confirm {
 .main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-primary:hover {
 	background:#4d7ba8
 }
-.main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-secondary {
+.btn-secondary {
 	background:#fff;
 	color:#099268;
-	border:2px solid #099268
+	border:2px solid #099268 !important;
 }
 .main-container .user-type-section .user-type-box .box-buttons .btn-box.btn-secondary:hover {
 	background:#099268;
@@ -1019,8 +1019,11 @@ button.confirm {
 	border-radius:15px
 }
 .search-result-container .search-bottom-buttons .btn-large {
-	padding:15px 40px;
+	padding: 15px 40px;
 	font-size:18px
+}
+.search-result-container .search-bottom-buttons .btn-large:nth-child(1) {
+	background:#099268;
 }
 .search-result-container .booked-trainers-container {
 	width:100%;
@@ -1367,12 +1370,17 @@ button.confirm {
 .unlogin-list-container .unlogin-list-subtitle {
 	font-size:18px;
 	color:#7f7f7f;
-	margin-bottom:40px;
+	margin-bottom: 20px;
 	text-align:center
 }
 .unlogin-list-container .unlogin-list-subtitle strong {
 	color:#4caf50;
 	font-size:22px
+}
+.unlogin-list-container .notice {
+	color: #ed7d31;
+	font-weight: 700;
+	margin-bottom: 20px;
 }
 .unlogin-list-container .unlogin-table-wrapper {
 	width:100%;
@@ -1441,7 +1449,6 @@ button.confirm {
 	display:flex;
 	gap:20px;
 	justify-content:center;
-	background:#ffffff;
 	padding:30px;
 	border-radius:15px
 }
@@ -2048,4 +2055,38 @@ button.confirm {
 		background: #099268;
 		color: #fff;
 	}
+	.search-result-container .trainer-list .trainer-item .trainer-item-info .btn-book-trainer {
+		padding: 12px 20px !important;
+	}
+	.btn-view-detail {
+		padding: 12px 20px !important;
+	}
+}
+
+/* 전역 input 스타일 */
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+	border: 1px solid #919191;
+	border-radius: 10px;
+}
+
+/* 상세보기 버튼 스타일 */
+.btn-view-detail {
+	padding: 12px 40px;
+	font-size: 18px;
+	font-weight: 700;
+	background: #6c757d;
+	color: #fff;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.btn-view-detail:hover {
+	background: #5a6268;
 }
