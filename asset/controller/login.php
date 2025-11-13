@@ -33,6 +33,12 @@
         if ($user) {
             // 비밀번호 확인
             if ($user['password'] === $password) {
+                // 트레이너의 경우 승인 여부 확인
+                if ($type === 'trainer' && isset($user['is_confirm']) && $user['is_confirm'] == 0) {
+                    echo json_encode(array('succ' => false, 'message' => '관리자에게 승인 대기중인 계정입니다.'));
+                    exit;
+                }
+
                 // 로그인 성공 - 세션에 사용자 정보 저장
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['user_no'] = $user['no'];

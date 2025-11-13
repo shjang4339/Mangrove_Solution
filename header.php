@@ -27,6 +27,8 @@ session_start();
 $is_logged_in = isset($_SESSION['user_id']);
 $user_name = $_SESSION['user_name'] ?? '';
 $user_type = $_SESSION['user_type'] ?? '';
+$user_id = $_SESSION['user_id'] ?? '';
+$is_admin = ($user_id === 'admin');
 ?>
 
 <!-- 헤더 네비게이션 (로그인 상태 표시) -->
@@ -40,6 +42,9 @@ $user_type = $_SESSION['user_type'] ?? '';
                 <span class="user-name"><?= htmlspecialchars($user_name) ?></span>
                 <span class="user-type">(<?= $user_type === 'member' ? '고객' : '트레이너' ?>)</span>
                 <button class="btn-myinfo" onclick="location.href='my_info_<?= $user_type ?>.php'">내 정보</button>
+                <?php if ($is_admin): ?>
+                    <button class="btn-admin" onclick="location.href='admin_dashboard.php'">관리자 페이지</button>
+                <?php endif; ?>
                 <button class="btn-logout" onclick="location.href='asset/controller/logout.php'">로그아웃</button>
             </div>
         <?php endif; ?>
