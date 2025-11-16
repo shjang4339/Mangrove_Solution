@@ -60,7 +60,7 @@ $diseases = $disease_stmt->fetchAll(PDO::FETCH_ASSOC);
 
         <!-- 버튼 박스 -->
         <div class="find-button-box">
-            <button class="btn-large btn-primary" id="btn-search">찾기</button>
+            <button class="btn-large btn-secondary" id="btn-search">찾기</button>
             <button class="btn-large btn-cancel" onclick="location.href='book.php'">취소</button>
         </div>
     </div>
