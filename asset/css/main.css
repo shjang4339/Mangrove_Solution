@@ -2243,6 +2243,11 @@ button.confirm {
 	max-width: 500px;
 }
 
+.no-result {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
 @media(max-width:768px) {
 	.my-info-container {
 		padding: 80px 20px 40px;
