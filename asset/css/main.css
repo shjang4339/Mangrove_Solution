@@ -843,7 +843,7 @@ button.confirm {
 		max-width: 760px;
 	}
 	.main-container {
-		padding:80px 0px 20px
+		padding:80px 20px 20px
 	}
 	.main-container > h1,
 	.main-container > div {
@@ -854,7 +854,7 @@ button.confirm {
 		font-size:28px
 	}
 	.main-container .main-subtitle {
-		font-size:16px;
+		font-size:15px;
 		padding:12px 20px
 	}
 	.main-container .login-section {
@@ -1858,7 +1858,7 @@ button.confirm {
 	border-radius:10px;
 	cursor:pointer;
 	transition:all .3s ease;
-	margin-right:5px
+	margin-right:5px;
 }
 .trainer-book-list-container .booking-table .btn-complete:hover {
 	background:#3d8b40
@@ -2219,8 +2219,8 @@ button.confirm {
 }
 
 .my-info-button-box .btn-large.btn-secondary {
-	background: #6c757d;
-	color: #fff;
+    background: #fff;
+    color: #099268;
 }
 
 .my-info-button-box .btn-large.btn-secondary:hover {
@@ -2605,5 +2605,9 @@ input[type="number"] {
 		padding: 6px 12px;
 		font-size: 11px;
 		margin: 2px;
+	}
+	.trainer-book-list-container .booking-table .btn-complete {
+		margin-right: 0;
+		margin-bottom: 5px;
 	}
 }

@@ -37,7 +37,7 @@ $unlogin_book_wait_count = $unlogin_book_wait_result['count'] ?? 0;
 
     <!-- 환영 메시지 -->
     <div class="welcome-message">
-        <h1><?= htmlspecialchars($user_name) ?> 트레이너님 안녕하세요!</h1>
+        <h1><?= htmlspecialchars($user_name) ?> 트레이너님 <br class="mo">안녕하세요!</h1>
         <p>예약 관리 페이지입니다</p>
     </div>
 

@@ -95,7 +95,7 @@
             <?php if ($is_logged_in && $user_type === 'member'): ?>
             <!-- 환영 메시지 -->
             <div class="welcome-message">
-                <h1><?= htmlspecialchars($user_name) ?> 회원님 안녕하세요!</h1>
+                <h1><?= htmlspecialchars($user_name) ?> 회원님 <br class="mo">안녕하세요!</h1>
                 <p>회원님에 맞는 트레이너를 찾으세요.</p>
             </div>
 
@@ -148,7 +148,7 @@
             <?php if ($is_logged_in && $user_type === 'trainer'): ?>
             <!-- 환영 메시지 -->
             <div class="welcome-message">
-                <h1><?= htmlspecialchars($user_name) ?> 트레이너님 안녕하세요!</h1>
+                <h1><?= htmlspecialchars($user_name) ?> 트레이너님 <br class="mo">안녕하세요!</h1>
                 <p>예약 관리 페이지입니다</p>
             </div>
 
