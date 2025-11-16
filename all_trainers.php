@@ -7,10 +7,10 @@ if (!$is_logged_in || $user_type !== 'member') {
     exit;
 }
 
-// 모든 트레이너 조회 (admin 제외)
+// 모든 트레이너 조회 (admin 제외, 승인된 트레이너만)
 $query = "SELECT no, name, image, major, teachday, license, sublicense_1, sublicense_2, sublicense_3, region, greet, disease_code
           FROM trainer
-          WHERE id != 'admin'
+          WHERE id != 'admin' AND is_confirm = 1
           ORDER BY no DESC";
 $stmt = $pdo->prepare($query);
 $stmt->execute();

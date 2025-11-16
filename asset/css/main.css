@@ -467,6 +467,279 @@ button.confirm {
 	color:#000;
 	margin:0
 }
+.main-container .welcome-message {
+	text-align:center;
+    margin-top: 30px;
+	margin-bottom:30px;
+	width:100%;
+}
+.main-container .welcome-message h1 {
+	font-size:32px;
+	font-weight:700;
+	color:#099268;
+	margin-bottom:15px
+}
+.main-container .welcome-message p {
+	font-size:20px;
+	color:#7f7f7f
+}
+.main-container .booking-count {
+	background:#099268;
+	padding:10px 40px;
+	border-radius:15px;
+	margin-bottom:40px;
+	text-align:center;
+	width:100%;
+	max-width:500px;
+    margin: 0 auto;
+}
+.main-container .booking-count p {
+	font-size:20px;
+	color:#fff
+}
+.main-container .booking-count p strong {
+	color:#fff;
+	font-size:24px
+}
+.main-container .booked-trainers-container {
+	width:100%;
+	max-width:900px;
+    margin: 30px auto 40px;
+}
+.main-container .booked-trainers-container h2 {
+	font-size:24px;
+	font-weight:700;
+	color:#099268;
+	margin-bottom:20px;
+	text-align:center
+}
+.main-container .booked-trainers-container .booked-trainers-list {
+	max-height:500px;
+	overflow-y:scroll;
+	padding:10px;
+	border:2px solid #ddd;
+	border-radius:15px;
+	background:#f9f9f9
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item {
+	display:flex;
+	flex-direction:row;
+	gap:20px;
+	background:#fff;
+	border:1px solid #ddd;
+	border-radius:12px;
+	padding:15px;
+	margin-bottom:15px;
+	transition:all .3s ease;
+	cursor:pointer;
+	align-items:center
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:last-child {
+	margin-bottom:0
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item:hover {
+	box-shadow:0 4px 12px rgba(0,0,0,0.15);
+	transform:translateY(-2px)
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image {
+	width:120px;
+	height:120px;
+	flex-shrink:0;
+	border-radius:10px;
+	overflow:hidden;
+	background:#f5f5f5;
+	display:flex;
+	align-items:center;
+	justify-content:center
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image img {
+	width:100%;
+	height:100%;
+	object-fit:cover
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-image .no-image {
+	color:#7f7f7f;
+	font-size:14px
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info {
+	flex:1;
+	display:flex;
+	flex-direction:column;
+	gap:8px
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info h3 {
+	font-size:18px;
+	font-weight:700;
+	color:#333;
+	margin:0
+}
+.main-container .booked-trainers-container .booked-trainers-list .booked-trainer-item .booked-trainer-info .trainer-details {
+	font-size:14px;
+	color:#666;
+	line-height:1.6;
+	margin:0
+}
+.main-container .book-button-box {
+	display:flex;
+	flex-direction:column;
+	gap:20px;
+	width:100%;
+	max-width:500px;
+	padding:30px 0;
+	border-radius:15px;
+    margin: 10px auto 30px;
+}
+.main-container .book-button-box .btn-book {
+	padding:20px 40px;
+	font-size:20px;
+	font-weight:700;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.main-container .book-button-box .btn-book.btn-gray {
+	background:#e9ecef;
+	color:#000;
+	border:none
+}
+.main-container .book-button-box .btn-book.btn-gray:hover {
+	background:#d3d5d7
+}
+.main-container .book-button-box .btn-book.btn-secondary {
+    background: #fff;
+    color: #099268;
+	border:none;
+}
+.main-container .book-button-box .btn-book.btn-secondary:hover {
+	background:#5a6268
+}
+.main-container .book-button-box .btn-book.btn-primary {
+	background:#099268;
+	color:#fff;
+	border:none
+}
+.main-container .book-button-box .btn-book.btn-primary:hover {
+	background:#077a54
+}
+.main-container .book-button-box .btn-book.btn-tertiary:hover {
+	background:#e0a800
+}
+.main-container .member-book-waiting {
+	width:100%;
+	max-width:600px;
+	background:#099268;
+	border:2px solid #099268;
+	border-radius:15px;
+	padding:30px;
+	margin-bottom:40px;
+	text-align:center;
+	transition:all .3s ease;
+	box-shadow:0 2px 8px rgba(9,146,104,0.2);
+	margin: 30px auto 10px;
+}
+.main-container .member-book-waiting:hover {
+	transform:translateY(-3px);
+	box-shadow:0 4px 16px rgba(9,146,104,0.3)
+}
+.main-container .member-book-waiting h2 {
+	font-size:22px;
+	font-weight:700;
+	color:#fff;
+	margin:0 0 15px 0
+}
+.main-container .member-book-waiting .waiting-count {
+	font-size:40px;
+	font-weight:700;
+	color:#fff;
+	margin:20px 0
+}
+.main-container .member-book-waiting .waiting-count strong {
+	font-size:50px;
+	color:#fff
+}
+.main-container .member-book-waiting .waiting-desc {
+	font-size:14px;
+	color:#fff;
+	margin:10px 0 0 0
+}
+.main-container .unlogin-book-waiting {
+	width:100%;
+	max-width:600px;
+	background:#4caf50;
+	border:2px solid #4caf50;
+	border-radius:15px;
+	padding:30px;
+	margin-bottom:40px;
+	text-align:center;
+	transition:all .3s ease;
+	box-shadow:0 2px 8px rgba(76,175,80,0.2);
+	margin: 30px auto;
+}
+.main-container .unlogin-book-waiting:hover {
+	transform:translateY(-3px);
+	box-shadow:0 4px 16px rgba(76,175,80,0.3)
+}
+.main-container .unlogin-book-waiting h2 {
+	font-size:22px;
+	font-weight:700;
+	color:#fff;
+	margin:0 0 15px 0
+}
+.main-container .unlogin-book-waiting .waiting-count {
+	font-size:40px;
+	font-weight:700;
+	color:#fff;
+	margin:20px 0
+}
+.main-container .unlogin-book-waiting .waiting-count strong {
+	font-size:50px;
+	color:#fff
+}
+.main-container .unlogin-book-waiting .waiting-desc {
+	font-size:14px;
+	color:#fff;
+	margin:10px 0 0 0
+}
+.main-container .my-info-button-box {
+	display:flex;
+	flex-direction:row;
+	gap:15px;
+	width:100%;
+	max-width:500px;
+	margin: 10px auto 40px;
+}
+.main-container .my-info-button-box .btn-large {
+	flex:1;
+	padding:15px 30px;
+	font-size:18px;
+	font-weight:700;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	transition:all .3s ease
+}
+.main-container .my-info-button-box .btn-large.btn-primary {
+	background:#099268;
+	color:#fff
+}
+.main-container .my-info-button-box .btn-large.btn-primary:hover {
+	background:#077a54
+}
+.main-container .my-info-button-box .btn-large.btn-secondary {
+	background:#6c757d;
+	color:#fff
+}
+.main-container .my-info-button-box .btn-large.btn-secondary:hover {
+	background:#5a6268
+}
+.main-container .my-info-button-box .btn-large.btn-cancel {
+	background:#e9ecef;
+	color:#000
+}
+.main-container .my-info-button-box .btn-large.btn-cancel:hover {
+	background:#d3d5d7
+}
 .login-container {
 	display:flex;
 	flex-direction:column;

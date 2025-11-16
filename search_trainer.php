@@ -18,15 +18,15 @@ if ($search_type === 'nearby') {
         // 회원의 거주지 코드 배열로 변환
         $member_regions = explode(',', $member_region);
 
-        // 트레이너 검색 - 거주지가 하나라도 일치하는 경우
+        // 트레이너 검색 - 거주지가 하나라도 일치하는 경우 (admin 제외, 승인된 트레이너만)
         $placeholders = implode(',', array_fill(0, count($member_regions), '?'));
-        $query = "SELECT * FROM trainer WHERE ";
+        $query = "SELECT * FROM trainer WHERE id != 'admin' AND is_confirm = 1 AND (";
 
         $conditions = [];
         foreach ($member_regions as $region) {
             $conditions[] = "FIND_IN_SET(?, region) > 0";
         }
-        $query .= implode(' OR ', $conditions);
+        $query .= implode(' OR ', $conditions) . ")";
 
         $stmt = $pdo->prepare($query);
         $stmt->execute($member_regions);
@@ -41,7 +41,7 @@ if ($search_type === 'nearby') {
         $region_arr = explode(',', $regions);
         $disease_arr = explode(',', $diseases);
 
-        // 트레이너 검색 - 거주지와 질환 코드가 모두 일치하는 경우
+        // 트레이너 검색 - 거주지와 질환 코드가 모두 일치하는 경우 (admin 제외, 승인된 트레이너만)
         $region_conditions = [];
         foreach ($region_arr as $region) {
             $region_conditions[] = "FIND_IN_SET(?, region) > 0";
@@ -52,7 +52,7 @@ if ($search_type === 'nearby') {
             $disease_conditions[] = "FIND_IN_SET(?, disease_code) > 0";
         }
 
-        $query = "SELECT * FROM trainer WHERE (" . implode(' OR ', $region_conditions) . ") AND (" . implode(' OR ', $disease_conditions) . ")";
+        $query = "SELECT * FROM trainer WHERE id != 'admin' AND is_confirm = 1 AND (" . implode(' OR ', $region_conditions) . ") AND (" . implode(' OR ', $disease_conditions) . ")";
 
         $params = array_merge($region_arr, $disease_arr);
         $stmt = $pdo->prepare($query);
